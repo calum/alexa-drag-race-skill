@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/calum/alexa-drag-race-skill.svg?branch=master)](https://travis-ci.org/calum/alexa-drag-race-skill)
 _work in progress_
 # Drag Race Skill for Alexa
 
