@@ -11,8 +11,10 @@ The configuration for translating the users questions into `intents` is defined 
 
 The api requests are all defined in `src/drag_race/` directory.
 
+## Continuous Deployment
+Any commits to the master branch will trigger `travis` to deploy a new version to AWS Lambda. Pull requests will be automatically tested by travis but won't be deployed.
+
 ## TODO
 * come up with a list of questions to answer
 * add api requests to `src/drag_race/`
-* automate deployment to AWS Lambda [travis-ci Lambda Deployment](https://docs.travis-ci.com/user/deployment/lambda/)
-* build custom Intent Slots for drag queen names
+* build custom [Intent Slots](https://developer.amazon.com/docs/custom-skills/custom-interaction-model-reference.html) for drag queen names. The current slots are really bad.
