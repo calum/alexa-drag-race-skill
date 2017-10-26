@@ -5,7 +5,7 @@ _work in progress_
 Answers questions on Drag Race using the [Drag Race API](https://drag-race-api.readme.io/docs).
 
 ## Structure
-The confifuration for translating the users questions into `intents` is defined in `config/models.json`.
+The configuration for translating the users questions into `intents` is defined in `config/models.json`.
 
 `main.js` is the entry point for the application and users questions are passed to the handles in `src/handlers.js`.
 

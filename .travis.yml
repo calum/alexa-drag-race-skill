@@ -10,7 +10,8 @@ deploy:
   region: eu-west-1
   role: arn:aws:iam::040251125443:role/service-role/alexa
   runtime: nodejs6.10
-  handler_name: src/main.handler
+  handler_name: handler
+  module_name: src/main
   access_key_id: AKIAIINQ4MNAYCPEHGLQ
   secret_access_key:
     secure: t0uZW2qvgQfQDTUgesaUqwl6ZDLvi1ik0C3oix0GjjzXpPzL3N0inDKVc2XuDVzqOc/uNMuxHPhP2cYbhGZqrZgPMUzdZeh5boDyG3cW5/RB+DGpO4RRV6mI16/wqF1Xu9TStf0eqGmkXxnQcbWNxAgGQqWNQsRiLZL+98RW2RsBgpactkBk/LaPkpqJjEX0JTktNlnyU4wxtSK9HxXmGXF8RR/FI1vTXsP66MAHuKXC6i7TtBvfnvBym2+pKra6HWiBGpq3MJnuFR/K8oua5VBKe7er0HdNqX0yaUBLt60NVJ1x0hGjeEHc8rFEUcfIQ8iigeJUyuUhlYXxgGyNIAK2pNDfwfZkQFLtEw1Ey+6jAU0w1gdL3kpXDjQpEd4kGaYSmuWElmNJHHSvFVfSmhfM6R+d7FrKmflpy+Z/sC3kREUH4Rs29+dCVxFmwp3TpCMclDdQcsNQub4GX0/Arii0clQF05vWcDZ3WSFZtSbsYXXfGUGG0BeNkRnAGQq6J/b7kAz6LB9lgNdiMOMDRKmNnvSjN0GTkfZzoggdamlSNtnkhg09on7y6m+hYHDUteYp6eZ4FwxvWa8t0nPi35RjXCrUWhucBrW4LSQyHIyru42AoTGxBVpkTFdh8gP/cGbTWTTH/iMRjVSAo5u9NiAb+s1TCv6TXrwiPsagYI8=
