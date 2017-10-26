@@ -1,0 +1,79 @@
+{
+  "intents": [
+    {
+      "name": "AMAZON.CancelIntent",
+      "samples": []
+    },
+    {
+      "name": "AMAZON.HelpIntent",
+      "samples": []
+    },
+    {
+      "name": "AMAZON.StopIntent",
+      "samples": []
+    },
+    {
+      "name": "getseasonfromqueen",
+      "samples": [
+        "what season was {queen} {queen_second_name} in",
+        "{queen} {queen_second_name} season",
+        "tell me the season that {queen} {queen_second_name} was in"
+      ],
+      "slots": [
+        {
+          "name": "queen",
+          "type": "AMAZON.GB_FIRST_NAME",
+          "samples": [
+            "{queen} {queen_second_name}"
+          ]
+        },
+        {
+          "name": "queen_second_name",
+          "type": "AMAZON.GB_FIRST_NAME",
+          "samples": []
+        }
+      ]
+    }
+  ],
+  "prompts": [
+    {
+      "id": "Elicit.Intent-getseasonfromqueen.IntentSlot-queen",
+      "promptVersion": "1.0",
+      "definitionVersion": "1.0",
+      "variations": [
+        {
+          "type": "PlainText",
+          "value": "Which queen?"
+        }
+      ]
+    }
+  ],
+  "dialog": {
+    "version": "1.0",
+    "intents": [
+      {
+        "name": "getseasonfromqueen",
+        "confirmationRequired": false,
+        "prompts": {},
+        "slots": [
+          {
+            "name": "queen",
+            "type": "AMAZON.GB_FIRST_NAME",
+            "elicitationRequired": true,
+            "confirmationRequired": false,
+            "prompts": {
+              "elicit": "Elicit.Intent-getseasonfromqueen.IntentSlot-queen"
+            }
+          },
+          {
+            "name": "queen_second_name",
+            "type": "AMAZON.GB_FIRST_NAME",
+            "elicitationRequired": false,
+            "confirmationRequired": false,
+            "prompts": {}
+          }
+        ]
+      }
+    ]
+  }
+}
