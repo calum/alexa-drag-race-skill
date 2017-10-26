@@ -10,6 +10,10 @@ var handlers = {
     var queen = this.event.request.intent.slots.queen.value
     var queen_second_name = this.event.request.intent.slots.queen_second_name.value
 
+    if (!queen) {
+      return this.emit('error')
+    }
+
     // if there is a second name, add that
     if (queen_second_name) {
       queen += ' ' + queen_second_name
