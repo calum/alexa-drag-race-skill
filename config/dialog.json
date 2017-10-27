@@ -1,0 +1,28 @@
+{
+    "version": "1.0",
+    "intents": [
+      {
+        "name": "getseasonfromqueen",
+        "confirmationRequired": false,
+        "prompts": {},
+        "slots": [
+          {
+            "name": "queen",
+            "type": "AMAZON.GB_FIRST_NAME",
+            "elicitationRequired": true,
+            "confirmationRequired": false,
+            "prompts": {
+              "elicit": "Elicit.Intent-getseasonfromqueen.IntentSlot-queen"
+            }
+          },
+          {
+            "name": "queen_second_name",
+            "type": "AMAZON.GB_FIRST_NAME",
+            "elicitationRequired": false,
+            "confirmationRequired": false,
+            "prompts": {}
+          }
+        ]
+      }
+    ]
+  }

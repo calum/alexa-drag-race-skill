@@ -1,1 +1,36 @@
-[]
+[
+    {
+      "name": "AMAZON.CancelIntent",
+      "samples": []
+    },
+    {
+      "name": "AMAZON.HelpIntent",
+      "samples": []
+    },
+    {
+      "name": "AMAZON.StopIntent",
+      "samples": []
+    },
+    {
+      "name": "getseasonfromqueen",
+      "samples": [
+        "what season was {queen} {queen_second_name} in",
+        "{queen} {queen_second_name} season",
+        "tell me the season that {queen} {queen_second_name} was in"
+      ],
+      "slots": [
+        {
+          "name": "queen",
+          "type": "AMAZON.GB_FIRST_NAME",
+          "samples": [
+            "{queen} {queen_second_name}"
+          ]
+        },
+        {
+          "name": "queen_second_name",
+          "type": "AMAZON.GB_FIRST_NAME",
+          "samples": []
+        }
+      ]
+    }
+  ]
