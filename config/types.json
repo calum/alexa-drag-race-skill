@@ -1,1 +1,16 @@
-[]
+[
+  {
+    "name": "drag_queen",
+    "values": [
+      {
+        "id": null,
+        "name": {
+          "value": "Akashia",
+          "synonyms": [
+            "Eric Flint"
+          ]
+        }
+      }
+    ]
+  }
+]
