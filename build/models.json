@@ -28,6 +28,71 @@
           ]
         }
       ]
+    },
+    {
+      "name": "getwinnerfromseason",
+      "samples": [
+        "who won season {season_number}",
+        "tell me who won season {season_number}",
+        "winner of season {season_number}"
+      ],
+      "slots": [
+        {
+          "name": "season_number",
+          "type": "AMAZON.NUMBER",
+          "samples": [
+            "{season_number}"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "getchallengesfromqueen",
+      "samples": [
+        "what challenges did {queen} win",
+        "did {queen} win any challenges"
+      ],
+      "slots": [
+        {
+          "name": "queen",
+          "type": "drag_queen",
+          "samples": [
+            "{queen}"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "gettopthreefromseason",
+      "samples": [
+        "Who were the top three in season {season_number}",
+        "season {season_number} top three"
+      ],
+      "slots": [
+        {
+          "name": "season_number",
+          "type": "AMAZON.NUMBER",
+          "samples": [
+            "{season_number}"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "getcongenialityfromseason",
+      "samples": [
+        "who was miss congeniality in season {season_number}",
+        "season {season_number} miss congeniality"
+      ],
+      "slots": [
+        {
+          "name": "season_number",
+          "type": "AMAZON.NUMBER",
+          "samples": [
+            "{season_number}"
+          ]
+        }
+      ]
     }
   ],
   "types": [
