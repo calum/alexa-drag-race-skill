@@ -19,14 +19,14 @@ The `build/` directory will hold files which must be manually uploaded onto the 
 Any commits to the master branch will trigger `travis` to deploy a new version to AWS Lambda. Pull requests will be automatically tested by travis but won't be deployed.
 
 ## Questions to be developed
-* What season is `{queen}` in?
-* Who won season `{number}`?
-* What challenges did `{queen}` win?
-* Who were the top three in season `{number}`?
+* What season is `{queen}` in? [_in development_]
+* Who won season `{number}`? [_in development_]
+* What challenges did `{queen}` win? [_in development_]
+* Who were the top three in season `{number}`? [_in development_]
 * Who did `{name}` for snatch game?
 * Who won the `{challenge_name}` challenge?
-* Who was Miss Congeniality in season `{number}`?
+* Who was Miss Congeniality in season `{number}`? [_in development_]
 
 ## TODO
-* Add the list of questions to `config/intents.json` 
+* Add the list of questions to `config/intents.json`
 * add api requests to `src/drag_race/`

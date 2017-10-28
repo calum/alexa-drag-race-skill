@@ -24,6 +24,34 @@ var handlers = {
     })
   },
 
+  'getwinnerfromseason': function() {
+    // get the season number from the intent slots
+    var season_number = this.event.request.intent.slots.season_number.value
+
+    this.emit(':tell', 'Sorry, I can\'t answer that right now')
+  },
+
+  'getchallengesfromqueen': function() {
+    // get the queen name from the intent slots
+    var queen = this.event.request.intent.slots.queen.value
+
+    this.emit(':tell', 'Sorry, I can\'t answer that right now')
+  },
+
+  'gettopthreefromseason': function() {
+    // get the season number from the intent slots
+    var season_number = this.event.request.intent.slots.season_number.value
+
+    this.emit(':tell', 'Sorry, I can\'t answer that right now')
+  },
+
+  'getcongenialityfromseason': function() {
+    // get the season number from the intent slots
+    var season_number = this.event.request.intent.slots.season_number.value
+
+    this.emit(':tell', 'Sorry, I can\'t answer that right now')
+  },
+
   'error': function() {
     this.emit(':tell', 'Sorry, an error occured')
   }
