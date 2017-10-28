@@ -38,7 +38,7 @@
       "slots": [
         {
           "name": "season_number",
-          "type": "AMAZON.NUMBER",
+          "type": "season_number",
           "samples": [
             "{season_number}"
           ]
@@ -70,7 +70,7 @@
       "slots": [
         {
           "name": "season_number",
-          "type": "AMAZON.NUMBER",
+          "type": "season_number",
           "samples": [
             "{season_number}"
           ]
@@ -86,7 +86,7 @@
       "slots": [
         {
           "name": "season_number",
-          "type": "AMAZON.NUMBER",
+          "type": "season_number",
           "samples": [
             "{season_number}"
           ]

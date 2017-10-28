@@ -10,6 +10,15 @@ describe('API tests', function() {
     })
   })
 
+  it('should get a queen\'s id from their name', function(done) {
+    api._get_queen_id("Trixie Mattel", function(err, id) {
+      if (id == 89) {
+        return done()
+      }
+      return done(err || new Error('got the wrong id for a queen: '+id))
+    })
+  })
+
   it('should get all seasons for a given queen', function(done) {
     api.get_season_from_queen('Trixie Mattel', function(err, seasons) {
       if (seasons.indexOf("7") > -1 && seasons.indexOf("A3") > -1) {
@@ -25,7 +34,7 @@ describe('API tests', function() {
       if (queen == "Bianca Del Rio") {
         return done()
       }
-      done(err | new Error('Returned the wrong queen: '+queen))
+      done(err || new Error('Returned the wrong queen: '+queen))
     })
   })
 
@@ -34,7 +43,37 @@ describe('API tests', function() {
       if (queen == "Chad Michaels") {
         return done()
       }
-      done(err | new Error('Returned the wrong queen: '+queen))
+      done(err || new Error('Returned the wrong queen: '+queen))
+    })
+  })
+
+  it('should get all the challenges that a queen has won', function(done) {
+    api.get_challenge_wins('Raven', function(err, challenges_won) {
+      if (challenges_won.total_main == 2) {
+        return done()
+      }
+      done(err || new Error('Wrong number of won challenges: ' + JSON.stringify(challenges_won)))
+    })
+  })
+
+  it('should get the top three from a season', function(done) {
+    api.get_season_top_three('3', function(err, top_three) {
+      if (top_three.indexOf('Raja') > -1 &&
+          top_three.indexOf('Alexis Mateo') > -1 &&
+          top_three.indexOf('Manila Luzon') > -1
+          ) {
+        return done()
+      }
+      done(err || new Error('Wrong top three ' + JSON.stringify(top_three)))
+    })
+  })
+
+  it('should return the winner of congeniality for a given season', function(done) {
+    api.miss_congeniality_season('A2', (err, winner) => {
+      if (winner == "Katya Zamolodchikova") {
+        return done()
+      }
+      done(err || new Error('returned the wrong winner: '+winner))
     })
   })
 })
