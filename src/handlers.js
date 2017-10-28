@@ -43,7 +43,20 @@ var handlers = {
     // get the season number from the intent slots
     var season_number = this.event.request.intent.slots.season_number.value
 
-    this.emit(':tell', 'Sorry, I can\'t answer that right now')
+    if (!season_number) {
+      return this.emit('error')
+    }
+
+    // replace case insensitive 'all stars' with the letter 'A'
+    season_number.replace(/all stars/ig, 'A')
+
+    api.get_season_winner(season_number, (err, winner) => {
+      if (err) {
+        console.error(err)
+        return this.emit('error')
+      }
+      this.emit(':tell', winner + ' was the winner of season ' + season_number)
+    })
   },
 
   // "what challenges did {queen} win"

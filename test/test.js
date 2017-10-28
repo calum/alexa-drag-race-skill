@@ -19,4 +19,22 @@ describe('API tests', function() {
       }
     })
   })
+
+  it('should return the correct season winner', function(done) {
+    api.get_season_winner('6', function(err, queen) {
+      if (queen == "Bianca Del Rio") {
+        return done()
+      }
+      done(err | new Error('Returned the wrong queen: '+queen))
+    })
+  })
+
+  it('should return the correct season winner for all stars', function(done) {
+    api.get_season_winner('A1', function(err, queen) {
+      if (queen == "Chad Michaels") {
+        return done()
+      }
+      done(err | new Error('Returned the wrong queen: '+queen))
+    })
+  })
 })

@@ -54,7 +54,44 @@ function get_season_from_queen(queen, callback) {
 
     return callback(null, seasons)
   })
+}
 
+/**
+* Returns the winner for a season
+**/
+function get_season_winner(season_number, callback) {
+  get('seasons', function(err, seasons) {
+    if (err) {
+      return callback(err)
+    }
+
+    // run fuzzy match to find the closest season match
+    var season_numbers = []
+    seasons.forEach((season) => {
+      season_numbers.push(season.seasonNumber)
+    })
+    var season_picked = fuzzy.filter(season_number, season_numbers)
+    try {
+      season_picked = season_picked[0].original
+    } catch (e) {
+      console.error(e)
+      return callback(e)
+    }
+
+    // find the season the user is asking about
+    var chosen_season = seasons.find(
+        (season) => season_picked == season.seasonNumber
+    )
+
+    // find the winner of that season
+    var winner = chosen_season.winnerId
+
+    // retreive this queen
+    var queen = chosen_season.queens.find((queen) => queen.id == winner)
+
+    // return this queen
+    return callback(null, queen.name)
+  })
 }
 
 /**
@@ -62,5 +99,6 @@ function get_season_from_queen(queen, callback) {
 **/
 module.exports = {
   get_exact_queen_name: get_exact_queen_name,
-  get_season_from_queen: get_season_from_queen
+  get_season_from_queen: get_season_from_queen,
+  get_season_winner: get_season_winner
 }
