@@ -13,21 +13,20 @@ The api requests are all defined in `src/drag_race/` directory.
 
 The `resources/` directory will hold some useful files for other parts of the application. For instance, the list of available drag queen names is taken from a file in `resources/` and used to generate the [intent slots](https://developer.amazon.com/docs/custom-skills/custom-interaction-model-reference.htm) for Alexa.
 
-The `build/` directory will hold files which must be manually uploaded onto the Alexa application page on amazon's website. 
+The `build/` directory will hold files which must be manually uploaded onto the Alexa application page on amazon's website.
 
 ## Continuous Deployment
 Any commits to the master branch will trigger `travis` to deploy a new version to AWS Lambda. Pull requests will be automatically tested by travis but won't be deployed.
 
 ## Questions to be developed
 * What season is `{queen}` in?
-* Who eliminated `{queen}` in a lipsync battle?
-* What challenges did `{queen}` win?
 * Who won season `{number}`?
-_TODO: Add more questions_
-
-
+* What challenges did `{queen}` win?
+* Who were the top three in season `{number}`?
+* Who did `{name}` for snatch game?
+* Who won the `{challenge_name}` challenge?
+* Who was Miss Congeniality in season `{number}`?
 
 ## TODO
-* come up with a list of questions to answer
+* Add the list of questions to `config/intents.json` 
 * add api requests to `src/drag_race/`
-* build custom [Intent Slots](https://developer.amazon.com/docs/custom-skills/custom-interaction-model-reference.html) for drag queen names. 
