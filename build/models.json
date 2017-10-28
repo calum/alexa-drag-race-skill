@@ -39,7 +39,7 @@
       "slots": [
         {
           "name": "season_number",
-          "type": "AMAZON.NUMBER",
+          "type": "season_number",
           "samples": [
             "{season_number}"
           ]
@@ -71,7 +71,7 @@
       "slots": [
         {
           "name": "season_number",
-          "type": "AMAZON.NUMBER",
+          "type": "season_number",
           "samples": [
             "{season_number}"
           ]
@@ -87,7 +87,7 @@
       "slots": [
         {
           "name": "season_number",
-          "type": "AMAZON.NUMBER",
+          "type": "season_number",
           "samples": [
             "{season_number}"
           ]
@@ -1012,6 +1012,83 @@
             "synonyms": [
               "Sasha Steinberg"
             ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "season_number",
+      "values": [
+        {
+          "id": null,
+          "name": {
+            "value": "1"
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "3"
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "all stars 1"
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "5"
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "6"
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "7"
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "all stars 3"
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "2"
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "all stars 2"
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "4"
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "9"
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "8"
           }
         }
       ]

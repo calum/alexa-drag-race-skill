@@ -2,6 +2,8 @@ var jsonify_drag_queens = require('../src/utils').jsonify_drag_queens
 var path = require('path')
 var fs = require('fs')
 
+var api = require('../src/drag_race/api')
+
 var output_file = path.join(__dirname, '../config/types.json')
 
 jsonify_drag_queens(function(err, drag_queens) {
@@ -11,6 +13,10 @@ jsonify_drag_queens(function(err, drag_queens) {
   var types =  [
     {
       "name": "drag_queen",
+      "values": []
+    },
+    {
+      "name": "season_number",
       "values": []
     }
   ]
@@ -37,11 +43,27 @@ jsonify_drag_queens(function(err, drag_queens) {
     }
   })
 
-  fs.writeFile(path.join(__dirname, '../config/types.json'), JSON.stringify(types, null, 2), 'utf8', function(err) {
-  	if (err) {
-  		return console.error(err)
-  	}
+  // add the season numbers:
+  api.get('seasons', (err, seasons) => {
+    if (err) {
+      console.error(err)
+    }
+    seasons.forEach(season => {
+      types[1].values.push({
+        "id": null,
+        "name": {
+          "value": season.seasonNumber.replace('A', 'all stars ')
+        }
+      })
+    })
 
-  	console.log('built config/types.json!')
+    // write the file
+    fs.writeFile(path.join(__dirname, '../config/types.json'), JSON.stringify(types, null, 2), 'utf8', function(err) {
+      if (err) {
+        return console.error(err)
+      }
+
+      console.log('built config/types.json!')
+    })
   })
 })
