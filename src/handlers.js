@@ -21,7 +21,7 @@ var handlers = {
         return this.emit('error')
       }
 
-      api.get_season_from_queen(exact_queen, function(err, seasons) {
+      api.get_season_from_queen(exact_queen, (err, seasons) => {
         if (err) {
           console.error(err)
           return this.emit('error')
