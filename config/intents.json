@@ -14,22 +14,17 @@
     {
       "name": "getseasonfromqueen",
       "samples": [
-        "what season was {queen} {queen_second_name} in",
-        "{queen} {queen_second_name} season",
-        "tell me the season that {queen} {queen_second_name} was in"
+        "what season was {queen} in",
+        "{queen} season",
+        "tell me the season that {queen} was in"
       ],
       "slots": [
         {
           "name": "queen",
-          "type": "AMAZON.GB_FIRST_NAME",
+          "type": "drag_queen",
           "samples": [
-            "{queen} {queen_second_name}"
+            "{queen}"
           ]
-        },
-        {
-          "name": "queen_second_name",
-          "type": "AMAZON.GB_FIRST_NAME",
-          "samples": []
         }
       ]
     }

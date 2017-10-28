@@ -1,9 +1,10 @@
 var fs = require('fs')
+var path = require('path')
 
-var intents = require('./config/intents.json')
-var types = require('./config/types.json')
-var prompts = require('./config/prompts.json')
-var dialog = require('./config/dialog.json')
+var intents = require('../config/intents.json')
+var types = require('../config/types.json')
+var prompts = require('../config/prompts.json')
+var dialog = require('../config/dialog.json')
 
 var models = {
 	intents: intents,
@@ -12,11 +13,10 @@ var models = {
 	dialog: dialog
 }
 
-fs.writeFile('build/models.json', JSON.stringify(models), 'utf8', function(err) {
+fs.writeFile(path.join(__dirname, '../build/models.json'), JSON.stringify(models, null, 2), 'utf8', function(err) {
 	if (err) {
 		return console.error(err)
 	}
-	
-	console.log('built models.json!')
-})
 
+	console.log('built build/models.json!')
+})

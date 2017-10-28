@@ -15,26 +15,1061 @@
     {
       "name": "getseasonfromqueen",
       "samples": [
-        "what season was {queen} {queen_second_name} in",
-        "{queen} {queen_second_name} season",
-        "tell me the season that {queen} {queen_second_name} was in"
+        "what season was {queen} in",
+        "{queen} season",
+        "tell me the season that {queen} was in"
       ],
       "slots": [
         {
           "name": "queen",
-          "type": "AMAZON.GB_FIRST_NAME",
+          "type": "drag_queen",
           "samples": [
-            "{queen} {queen_second_name}"
+            "{queen}"
           ]
-        },
-        {
-          "name": "queen_second_name",
-          "type": "AMAZON.GB_FIRST_NAME",
-          "samples": []
         }
       ]
     }
   ],
+  "types": {
+    "name": "drag_queen",
+    "values": [
+      {
+        "id": null,
+        "name": {
+          "value": "Porkchop",
+          "synonyms": [
+            "Victor Bowling"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Tammie Brown",
+          "synonyms": [
+            "Keith Glen Schubert"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Akashia",
+          "synonyms": [
+            "Eric Flint"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Jade Sotomayor",
+          "synonyms": [
+            "David Sotomayor"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Ongina",
+          "synonyms": [
+            "Ryan Ong Palao"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Shannel",
+          "synonyms": [
+            "Bryan Watkins"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Rebecca Glasscock",
+          "synonyms": [
+            "Javier Rivera"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Nina Flowers",
+          "synonyms": [
+            "Jorge Luis Flores Sanchez"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "BeBe Zahara Benet",
+          "synonyms": [
+            "Nea Marshall Kudi Ngwa"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Shangela Laquifa Wadley",
+          "synonyms": [
+            "D.J. Pierce"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Nicole Paige Brooks",
+          "synonyms": [
+            "Bryan Christopher Pryor"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Mystique Summers Madison",
+          "synonyms": [
+            "Donté Sims"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Sonique",
+          "synonyms": [
+            "Kylie Sonique Love"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Morgan McMichaels",
+          "synonyms": [
+            "Thomas White"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Sahara Davenport",
+          "synonyms": [
+            "Antoine Ashley"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Jessica Wild",
+          "synonyms": [
+            "José David Sierra"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Pandora Boxx",
+          "synonyms": [
+            "Michael Steck"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Tatianna",
+          "synonyms": [
+            "Joey Santolini"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Jujubee",
+          "synonyms": [
+            "Airline Inthyrath"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Raven",
+          "synonyms": [
+            "David Petruschin"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Tyra Sanchez",
+          "synonyms": [
+            "James Ross"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Venus D-Lite",
+          "synonyms": [
+            ""
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Phoenix",
+          "synonyms": [
+            ""
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Mimi Imfurst",
+          "synonyms": [
+            "Braden Chapman"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "India Ferrah",
+          "synonyms": [
+            ""
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Mariah",
+          "synonyms": [
+            ""
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Stacy Layne Matthews",
+          "synonyms": [
+            ""
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Delta Work",
+          "synonyms": [
+            ""
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Carmen Carrera",
+          "synonyms": [
+            "Carmen Carrera"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Shangela Laquifa Wadley",
+          "synonyms": [
+            "D.J. Pierce"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Yara Sofia",
+          "synonyms": [
+            "Gabriel Burgos Ortiz"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Alexis Mateo",
+          "synonyms": [
+            "Alexis Mateo Pacheco"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Manila Luzon",
+          "synonyms": [
+            "Karl Westerberg"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Raja",
+          "synonyms": [
+            "Sutan Amrull"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Alisa Summers",
+          "synonyms": [
+            ""
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Lashauwn Beyond",
+          "synonyms": [
+            ""
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "The Princess",
+          "synonyms": [
+            ""
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Madame LaQueer",
+          "synonyms": [
+            ""
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Milan",
+          "synonyms": [
+            ""
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Jiggly Caliente",
+          "synonyms": [
+            ""
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Willam",
+          "synonyms": [
+            "Willam Belli"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "DiDa Ritz",
+          "synonyms": [
+            ""
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Kenya Michaels",
+          "synonyms": [
+            ""
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Latrice Royale",
+          "synonyms": [
+            "Timothy Wilcots"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Phi Phi O'Hara",
+          "synonyms": [
+            "Jaremi Carey"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Chad Michaels",
+          "synonyms": [
+            "Chad Michaels"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Sharon Needles",
+          "synonyms": [
+            "Aaron Coady"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Penny Tration",
+          "synonyms": [
+            ""
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Serena ChaCha",
+          "synonyms": [
+            ""
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Monica Beverly Hillz",
+          "synonyms": [
+            "Juan DeJesus Anaya"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Honey Mahogany",
+          "synonyms": [
+            "Alpha Mulugeta"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Vivienne Pinay",
+          "synonyms": [
+            ""
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Lineysha Sparx",
+          "synonyms": [
+            "Andy Trinidad"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Jade Jolie",
+          "synonyms": [
+            ""
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Ivy Winters",
+          "synonyms": [
+            "Dustin Winters"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Alyssa Edwards",
+          "synonyms": [
+            "Justin Johnson"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Coco Montrese",
+          "synonyms": [
+            "Martin Cooper"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Detox",
+          "synonyms": [
+            "Matthew Sanderson"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Roxxxy Andrews",
+          "synonyms": [
+            "Michael Feliciano"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Alaska",
+          "synonyms": [
+            "Justin Honard"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Jinkx Monsoon",
+          "synonyms": [
+            "Jerick Hoffer"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Kelly Mantle",
+          "synonyms": [
+            "Kelly Mantle"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Magnolia Crawford",
+          "synonyms": [
+            ""
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Vivacious",
+          "synonyms": [
+            ""
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "April Carrión",
+          "synonyms": [
+            ""
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Gia Gunn",
+          "synonyms": [
+            ""
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Milk",
+          "synonyms": [
+            ""
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Laganja Estranja",
+          "synonyms": [
+            "Jay Jackson"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Trinity K. Bonet",
+          "synonyms": [
+            ""
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Joslyn Fox",
+          "synonyms": [
+            ""
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "BenDeLaCreme",
+          "synonyms": [
+            "Benjamin Putnam"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Darienne Lake",
+          "synonyms": [
+            ""
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Courtney Act",
+          "synonyms": [
+            "Shane Jenek"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Adore Delano",
+          "synonyms": [
+            "Danny Noriega"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Bianca Del Rio",
+          "synonyms": [
+            "Roy Haylock"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Tempest DuJour",
+          "synonyms": [
+            ""
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Sasha Belle",
+          "synonyms": [
+            ""
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Jasmine Masters",
+          "synonyms": [
+            ""
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Mrs. Kasha Davis",
+          "synonyms": [
+            ""
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Kandy Ho",
+          "synonyms": [
+            ""
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Max",
+          "synonyms": [
+            ""
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Jaidynn Diore Fierce",
+          "synonyms": [
+            ""
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Miss Fame",
+          "synonyms": [
+            "Kurtis Dam-Mikkelsen"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Trixie Mattel",
+          "synonyms": [
+            "Brian Firkus"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Katya",
+          "synonyms": [
+            "Brian McCook"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Kennedy Davenport",
+          "synonyms": [
+            ""
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Pearl",
+          "synonyms": [
+            "Matthew James Lent"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Ginger Minj",
+          "synonyms": [
+            "Joshua Eads-Brown"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Violet Chachki",
+          "synonyms": [
+            "Jason Dardo"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Laila McQueen",
+          "synonyms": [
+            "Tyler Devlin"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Dax ExclamationPoint",
+          "synonyms": [
+            "Dax Martin"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Cynthia Lee Fontaine",
+          "synonyms": [
+            "Carlos Hernández"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Naysha Lopez",
+          "synonyms": [
+            "Fabian Rodriguez"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Acid Betty",
+          "synonyms": [
+            "Jamin Ruhren"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Robbie Turner",
+          "synonyms": [
+            "Jeremy Baird"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Thorgy Thor",
+          "synonyms": [
+            "Shane Galligan"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Derrick Barry",
+          "synonyms": [
+            "Derrick Barry"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Chi Chi DeVayne",
+          "synonyms": [
+            "Zavion Davenport"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Naomi Smalls",
+          "synonyms": [
+            "Davis Heppenstall"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Kim Chi",
+          "synonyms": [
+            "Sang-young Shin"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Bob the Drag Queen",
+          "synonyms": [
+            "Christopher Caldwell"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Jaymes Mansfield",
+          "synonyms": [
+            "James Wirth"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Kimora Blac",
+          "synonyms": [
+            "Von Nguyen"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Charlie Hides",
+          "synonyms": [
+            "Charlie Hides"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Eureka O'Hara",
+          "synonyms": [
+            "David Huggard"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Cynthia Lee Fontaine",
+          "synonyms": [
+            "Carlos Hernandez"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Aja",
+          "synonyms": [
+            "Jay Rivera"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Farrah Moan",
+          "synonyms": [
+            "Cameron Clayton"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Valentina",
+          "synonyms": [
+            "James Andrew Leyva"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Nina Bo'nina Brown",
+          "synonyms": [
+            "Pierre Laverne Dease"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Alexis Michelle",
+          "synonyms": [
+            "Alex Michaels"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Trinity Taylor",
+          "synonyms": [
+            "Ryan Taylor"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Shea Couleé",
+          "synonyms": [
+            "Jaren Merrell"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Peppermint",
+          "synonyms": [
+            "Agnes Moore"
+          ]
+        }
+      },
+      {
+        "id": null,
+        "name": {
+          "value": "Sasha Velour",
+          "synonyms": [
+            "Sasha Steinberg"
+          ]
+        }
+      }
+    ]
+  },
   "prompts": [
     {
       "id": "Elicit.Intent-getseasonfromqueen.IntentSlot-queen",
@@ -58,19 +1093,12 @@
         "slots": [
           {
             "name": "queen",
-            "type": "AMAZON.GB_FIRST_NAME",
+            "type": "drag_queen",
             "elicitationRequired": true,
             "confirmationRequired": false,
             "prompts": {
               "elicit": "Elicit.Intent-getseasonfromqueen.IntentSlot-queen"
             }
-          },
-          {
-            "name": "queen_second_name",
-            "type": "AMAZON.GB_FIRST_NAME",
-            "elicitationRequired": false,
-            "confirmationRequired": false,
-            "prompts": {}
           }
         ]
       }
