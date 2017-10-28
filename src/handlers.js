@@ -5,6 +5,7 @@ var handlers = {
     this.emit(':tell', 'Hey, welcome')
   },
 
+  // "what season was {queen} in"
   'getseasonfromqueen': function() {
     // get the queen name from the intent slots
     var queen = this.event.request.intent.slots.queen.value
@@ -13,17 +14,31 @@ var handlers = {
       return this.emit('error')
     }
 
-    api.get_season_from_queen(queen, function(seasons) {
-      var answer = queen + ' was in season ' + seasons.pop()
-      while(seasons.length > 0) {
-        answer += ' and ' + seasons.pop()
+    // get the exact queen name:
+    api.get_exact_queen_name(queen, (err, exact_queen) => {
+      if (err) {
+        console.error(err)
+        return this.emit('error')
       }
 
-      // send the answer back
-      this.emit(':tell', answer)
+      api.get_season_from_queen(exact_queen, function(err, seasons) {
+        if (err) {
+          console.error(err)
+          return this.emit('error')
+        }
+
+        var answer = exact_queen + ' was in season ' + seasons.pop()
+        while(seasons.length > 0) {
+          answer += ' and ' + seasons.pop()
+        }
+
+        // send the answer back
+        this.emit(':tell', answer)
+      })
     })
   },
 
+  // "who won season {season_number}"
   'getwinnerfromseason': function() {
     // get the season number from the intent slots
     var season_number = this.event.request.intent.slots.season_number.value
@@ -31,6 +46,7 @@ var handlers = {
     this.emit(':tell', 'Sorry, I can\'t answer that right now')
   },
 
+  // "what challenges did {queen} win"
   'getchallengesfromqueen': function() {
     // get the queen name from the intent slots
     var queen = this.event.request.intent.slots.queen.value
@@ -38,6 +54,7 @@ var handlers = {
     this.emit(':tell', 'Sorry, I can\'t answer that right now')
   },
 
+  // "Who were the top three in season {season_number}"
   'gettopthreefromseason': function() {
     // get the season number from the intent slots
     var season_number = this.event.request.intent.slots.season_number.value
@@ -45,6 +62,7 @@ var handlers = {
     this.emit(':tell', 'Sorry, I can\'t answer that right now')
   },
 
+  // "who was miss congeniality in season {season_number}"
   'getcongenialityfromseason': function() {
     // get the season number from the intent slots
     var season_number = this.event.request.intent.slots.season_number.value
