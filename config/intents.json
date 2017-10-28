@@ -1,1 +1,31 @@
-[]
+[
+    {
+      "name": "AMAZON.CancelIntent",
+      "samples": []
+    },
+    {
+      "name": "AMAZON.HelpIntent",
+      "samples": []
+    },
+    {
+      "name": "AMAZON.StopIntent",
+      "samples": []
+    },
+    {
+      "name": "getseasonfromqueen",
+      "samples": [
+        "what season was {queen} in",
+        "{queen} season",
+        "tell me the season that {queen} was in"
+      ],
+      "slots": [
+        {
+          "name": "queen",
+          "type": "drag_queen",
+          "samples": [
+            "{queen}"
+          ]
+        }
+      ]
+    }
+  ]

@@ -1,0 +1,13 @@
+[
+    {
+      "id": "Elicit.Intent-getseasonfromqueen.IntentSlot-queen",
+      "promptVersion": "1.0",
+      "definitionVersion": "1.0",
+      "variations": [
+        {
+          "type": "PlainText",
+          "value": "Which queen?"
+        }
+      ]
+    }
+]

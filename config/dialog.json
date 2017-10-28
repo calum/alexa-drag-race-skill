@@ -1,0 +1,21 @@
+{
+    "version": "1.0",
+    "intents": [
+      {
+        "name": "getseasonfromqueen",
+        "confirmationRequired": false,
+        "prompts": {},
+        "slots": [
+          {
+            "name": "queen",
+            "type": "drag_queen",
+            "elicitationRequired": true,
+            "confirmationRequired": false,
+            "prompts": {
+              "elicit": "Elicit.Intent-getseasonfromqueen.IntentSlot-queen"
+            }
+          }
+        ]
+      }
+    ]
+  }
