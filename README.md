@@ -1,15 +1,22 @@
 [![Build Status](https://travis-ci.org/calum/alexa-drag-race-skill.svg?branch=master)](https://travis-ci.org/calum/alexa-drag-race-skill) ![dependencies](https://david-dm.org/calum/alexa-drag-race-skill.svg)
 
+
 # Drag Race Skill for Alexa
 
-No one knows more about drag race. For those moments when you forget who won Miss Congeniality in season 3.
+Alexa, Shantay you stay.
 
-With the smartest drag race fan by your side, you will never be far from answers to those burning drag questions.
+![logo](build/logo_small.png)
 
-Built using the [No Key No Shade drag race API](https://drag-race-api.readme.io/docs).
+Drag Race Facts can answer questions about any of the queens and seasons from RuPaul's Drag Race.
+
+This Alexa skill is open source and so if you have a question that isn't currently supported, you can put an issue on our GitHub page or even add the functionality yourself!
+
+The GitHub page is found at https://github.com/calum/alexa-drag-race-skill.
+
+This skill is built using the [No Key No Shade drag race API](https://drag-race-api.readme.io/docs).
 
 1. What season was Katya in?
-2. What challenges did Alaska win?
+2. Who were the top three in all stars two?
 3. Who was Miss Congeniality in season four?
 
 
