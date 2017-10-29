@@ -65,12 +65,12 @@ var handlers = {
     season_number = season_number.replace(/\s/ig, '') // remove spaces
     season_number = season_number.trim()
 
-    api.get_season_winner(season_number, (err, winner) => {
+    api.get_season_winner(season_number, (err, winner, used_season_number) => {
       if (err) {
         console.error(err)
         return this.emit('error')
       }
-      this.emit(':tell', winner + ' was the winner of season ' + season_number.replace('A', 'all stars '))
+      this.emit(':tell', winner + ' was the winner of season ' + used_season_number.replace('A', 'all stars '))
     })
   },
 
@@ -127,12 +127,12 @@ var handlers = {
     season_number = season_number.replace(/\s/ig, '') // remove spaces
     season_number = season_number.trim()
 
-    api.get_season_top_three(season_number, (err, top_three) => {
+    api.get_season_top_three(season_number, (err, top_three, used_season_number) => {
       if (err) {
         console.error(err)
         return this.emit('error')
       }
-      var answer = 'The top three for season ' + season_number.replace('A', 'all stars ') + ' are ' +
+      var answer = 'The top three for season ' + used_season_number.replace('A', 'all stars ') + ' are ' +
                     top_three[0] + ', ' +
                     top_three[1] + ', and ' +
                     top_three[2] + '.'

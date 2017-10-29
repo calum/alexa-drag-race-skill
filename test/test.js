@@ -39,8 +39,8 @@ describe('API tests', function() {
   })
 
   it('should return the correct season winner for all stars', function(done) {
-    api.get_season_winner('A1', function(err, queen) {
-      if (queen == "Chad Michaels") {
+    api.get_season_winner('A1', function(err, queen, season_number) {
+      if (queen == "Chad Michaels" && season_number == 'A1') {
         return done()
       }
       done(err || new Error('Returned the wrong queen: '+queen))
@@ -57,10 +57,11 @@ describe('API tests', function() {
   })
 
   it('should get the top three from a season', function(done) {
-    api.get_season_top_three('3', function(err, top_three) {
+    api.get_season_top_three('3', function(err, top_three, season_number) {
       if (top_three.indexOf('Raja') > -1 &&
           top_three.indexOf('Alexis Mateo') > -1 &&
-          top_three.indexOf('Manila Luzon') > -1
+          top_three.indexOf('Manila Luzon') > -1 &&
+          season_number == '3'
           ) {
         return done()
       }
