@@ -19,9 +19,9 @@ function jsonify_drag_queens(callback) {
         return callback(err)
       }
 
-      for(i=0; i<data.length-1; i++) {
-        drag_queen = {}
-        for(j=0; j<data[0].length; j++) {
+      for(let i=0; i<data.length-1; i++) {
+        var drag_queen = {}
+        for(let j=0; j<data[0].length; j++) {
           drag_queen[data[0][j]] = data[i+1][j]
         }
 

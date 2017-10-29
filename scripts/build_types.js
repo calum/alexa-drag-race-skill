@@ -58,7 +58,7 @@ jsonify_drag_queens(function(err, drag_queens) {
     })
 
     // write the file
-    fs.writeFile(path.join(__dirname, '../config/types.json'), JSON.stringify(types, null, 2), 'utf8', function(err) {
+    fs.writeFile(output_file, JSON.stringify(types, null, 2), 'utf8', function(err) {
       if (err) {
         return console.error(err)
       }
