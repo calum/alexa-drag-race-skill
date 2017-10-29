@@ -11,7 +11,7 @@ var handlers = {
     var queen = this.event.request.intent.slots.queen.value
 
     if (!queen) {
-      return this.emit('error')
+      return this.emit(':ask', 'I could not work out which queen you are asking about. Please ask again.', 'Please ask that again.')
     }
 
     // get the exact queen name:
@@ -27,9 +27,9 @@ var handlers = {
           return this.emit('error')
         }
 
-        var answer = exact_queen + ' was in season ' + seasons.pop()
+        var answer = exact_queen + ' was in season ' + seasons.pop().replace('A', 'all stars ')
         while(seasons.length > 0) {
-          answer += ' and ' + seasons.pop()
+          answer += ' and ' + seasons.pop().replace('A', 'all stars ')
         }
 
         // send the answer back
@@ -49,6 +49,7 @@ var handlers = {
 
     // replace case insensitive 'all stars' with the letter 'A'
     season_number.replace(/all stars/ig, 'A')
+    season_number.replace(/stars/ig, 'A')
 
     api.get_season_winner(season_number, (err, winner) => {
       if (err) {
@@ -80,7 +81,9 @@ var handlers = {
         var answer = exact_queen + ' has won ' + challenges_won.total_main +
                       ' main challenges and ' + challenges_won.total_mini +
                       ' mini challenges: '
-        answer += challenges_won.names.pop()
+        if (challenges_won.names.length > 0) {
+          answer += challenges_won.names.pop()
+        }
         while(challenges_won.names.length > 0) {
           answer += ' and ' + challenges_won.names.pop()
         }

@@ -1,5 +1,5 @@
 var request = require('request')
-var fuzzy = require('fuzzy')
+var Fuse = require('fuse.js')
 
 var url = 'http://www.nokeynoshade.party/api/'
 
@@ -25,16 +25,20 @@ function get_exact_queen_name(queen_input, callback) {
     if (err) {
       return callback(err)
     }
-    var queen_names = []
 
-    queens.forEach((queen) => {
-      queen_names.push(queen.name)
-    })
     // use fuzzy matching to find the nearest match
-    var exact_queen_name = fuzzy.filter(queen_input, queen_names)
+    var fuse = new Fuse(queens, {keys: ['name']})
+    var exact_queen_name = fuse.search(queen_input)
+
+    try {
+      name = exact_queen_name[0].name
+    } catch (err) {
+      // error is likely caused by no matches being found
+      return callback(err)
+    }
 
     // return the original string for the first match
-    return callback(null, exact_queen_name[0].original)
+    return callback(null, name)
   })
 }
 
@@ -46,7 +50,12 @@ function get_queen_id(queen, callback) {
     if (err) {
       return callback(err)
     }
-    return callback(null, queen[0].id)
+    try {
+      return callback(null, queen[0].id)
+    } catch (err) {
+      // error is likely due to no queen's being returned
+      return callback(err)
+    }
   })
 }
 
@@ -78,13 +87,10 @@ function get_season_winner(season_number, callback) {
     }
 
     // run fuzzy match to find the closest season match
-    var season_numbers = []
-    seasons.forEach((season) => {
-      season_numbers.push(season.seasonNumber)
-    })
-    var season_picked = fuzzy.filter(season_number, season_numbers)
+    var fuse = new Fuse(seasons, {keys: ['seasonNumber']})
+    var season_picked = fuse.search(season_number)
     try {
-      season_picked = season_picked[0].original
+      season_picked = season_picked[0].seasonNumber
     } catch (e) {
       console.error(e)
       return callback(e)
@@ -94,6 +100,11 @@ function get_season_winner(season_number, callback) {
     var chosen_season = seasons.find(
         (season) => season_picked == season.seasonNumber
     )
+
+    if (!chosen_season) {
+      // if no season is found return an error
+      return callback(new Error('No season match'))
+    }
 
     // find the winner of that season
     var winner = chosen_season.winnerId
@@ -121,6 +132,7 @@ function get_challenge_wins(queen, callback) {
       if (err) {
         return callback(err)
       }
+      
       // build an object of all challenges which have been won
       var challenges_won = {
         total_mini: 0,
@@ -157,25 +169,17 @@ function get_season_top_three(season_number, callback) {
     }
 
     // run fuzzy match to find the closest season match
-    var season_numbers = []
-    seasons.forEach((season) => {
-      season_numbers.push(season.seasonNumber)
-    })
-    var season_picked = fuzzy.filter(season_number, season_numbers)
+    var fuse = new Fuse(seasons, {keys: ['seasonNumber']})
+    var season_picked = fuse.search(season_number)
     try {
-      season_picked = season_picked[0].original
+      season_picked = season_picked[0]
     } catch (e) {
       console.error(e)
       return callback(e)
     }
 
-    // find the season the user is asking about
-    var chosen_season = seasons.find(
-        (season) => season_picked == season.seasonNumber
-    )
-
     // find the top three queens
-    var top_three = chosen_season.queens.filter(queen => queen.place <= 3)
+    var top_three = season_picked.queens.filter(queen => queen.place <= 3)
 
     // put them into an array
     var top_three_array = [
