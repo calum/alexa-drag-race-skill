@@ -2,7 +2,19 @@ var api = require('./drag_race/api')
 
 var handlers = {
   'LaunchRequest': function() {
-    this.emit(':tell', 'Hey, welcome')
+    this.emit(':tell', 'She Already Had Had Hersesszzz')
+  },
+
+  'AMAZON.CancelIntent': function () {
+    this.emit(':tell', 'Okay.')
+  },
+
+  'AMAZON.HelpIntent': function() {
+    this.emit(':tell', 'Ask me who won season 4, what challenges did Katya win, and who was miss congeniality in season 7.')
+  },
+
+  'AMAZON.StopIntent': function() {
+    this.emit(':tell', 'Sashay Away')
   },
 
   // "what season was {queen} in"
@@ -44,7 +56,7 @@ var handlers = {
     var season_number = this.event.request.intent.slots.season_number.value
 
     if (!season_number) {
-      return this.emit('error')
+      return this.emit(':ask', 'I could not work out which season you are asking about. Please ask again.', 'Please ask that again.')
     }
 
     // replace case insensitive 'all stars' with the letter 'A'
@@ -64,6 +76,10 @@ var handlers = {
   'getchallengesfromqueen': function() {
     // get the queen name from the intent slots
     var queen = this.event.request.intent.slots.queen.value
+
+    if (!queen) {
+      return this.emit(':ask', 'I could not work out which queen you are asking about. Please ask again.', 'Please ask that again.')
+    }
 
     // get the exact queen name:
     api.get_exact_queen_name(queen, (err, exact_queen) => {
@@ -100,7 +116,7 @@ var handlers = {
     var season_number = this.event.request.intent.slots.season_number.value
 
     if (!season_number) {
-      return this.emit('error')
+      return this.emit(':ask', 'I could not work out which season you are asking about. Please ask again.', 'Please ask that again.')
     }
 
     // replace case insensitive 'all stars' with the letter 'A'
@@ -125,7 +141,7 @@ var handlers = {
     var season_number = this.event.request.intent.slots.season_number.value
 
     if (!season_number) {
-      return this.emit('error')
+      return this.emit(':ask', 'I could not work out which season you are asking about. Please ask again.', 'Please ask that again.')
     }
 
     // replace case insensitive 'all stars' with the letter 'A'
@@ -141,8 +157,12 @@ var handlers = {
     })
   },
 
+  'Unhandled': function() {
+    this.emit(':tell', 'Sorry, something went wrong. Try asking that again.')
+  },
+
   'error': function() {
-    this.emit(':tell', 'Sorry, an error occured')
+    this.emit(':tell', 'Sorry, something went wrong. Try asking that again.')
   }
 }
 
