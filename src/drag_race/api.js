@@ -27,7 +27,7 @@ function get_exact_queen_name(queen_input, callback) {
     }
 
     // use fuzzy matching to find the nearest match
-    var fuse = new Fuse(queens, {keys: ['name']})
+    var fuse = new Fuse(queens, {keys: ['name'], shouldSort: true, tokenize: true})
     var exact_queen_name = fuse.search(queen_input)
 
     var name
@@ -88,7 +88,7 @@ function get_season_winner(season_number, callback) {
     }
 
     // run fuzzy match to find the closest season match
-    var fuse = new Fuse(seasons, {keys: ['seasonNumber']})
+    var fuse = new Fuse(seasons, {keys: ['seasonNumber'], shouldSort: true, tokenize: true})
     var season_picked = fuse.search(season_number)
     try {
       season_picked = season_picked[0].seasonNumber
@@ -170,7 +170,7 @@ function get_season_top_three(season_number, callback) {
     }
 
     // run fuzzy match to find the closest season match
-    var fuse = new Fuse(seasons, {keys: ['seasonNumber']})
+    var fuse = new Fuse(seasons, {keys: ['seasonNumber'], shouldSort: true, tokenize: true})
     var season_picked = fuse.search(season_number)
     try {
       season_picked = season_picked[0]

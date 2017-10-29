@@ -62,6 +62,8 @@ var handlers = {
     // replace case insensitive 'all stars' with the letter 'A'
     season_number.replace(/all stars/ig, 'A')
     season_number.replace(/stars/ig, 'A')
+    season_number.replace(/\s/ig, '') // remove spaces
+    season_number.trim()
 
     api.get_season_winner(season_number, (err, winner) => {
       if (err) {
@@ -121,6 +123,9 @@ var handlers = {
 
     // replace case insensitive 'all stars' with the letter 'A'
     season_number.replace(/all stars/ig, 'A')
+    season_number.replace(/stars/ig, 'A')
+    season_number.replace(/\s/ig, '') // remove spaces
+    season_number.trim()
 
     api.get_season_top_three(season_number, (err, top_three) => {
       if (err) {
@@ -146,6 +151,9 @@ var handlers = {
 
     // replace case insensitive 'all stars' with the letter 'A'
     season_number.replace(/all stars/ig, 'A')
+    season_number.replace(/stars/ig, 'A')
+    season_number.replace(/\s/ig, '') // remove spaces
+    season_number.trim()
 
     api.miss_congeniality_season(season_number, (err, winner) => {
       if (err) {
