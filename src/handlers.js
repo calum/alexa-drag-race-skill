@@ -10,7 +10,7 @@ var handlers = {
   },
 
   'AMAZON.HelpIntent': function() {
-    this.emit(':tell', 'Ask me who won season 4, what challenges did Katya win, and who was miss congeniality in season 7.')
+    this.emit(':tell', 'Ask me who won season 4, who were the top three in all stars two, and who was miss congeniality in season 7.')
   },
 
   'AMAZON.StopIntent': function() {
@@ -103,7 +103,7 @@ var handlers = {
           answer += challenges_won.names.pop()
         }
         while(challenges_won.names.length > 0) {
-          answer += ' and ' + challenges_won.names.pop()
+          answer += '. ' + challenges_won.names.pop()
         }
 
         // send the answer back
