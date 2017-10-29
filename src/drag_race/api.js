@@ -30,6 +30,7 @@ function get_exact_queen_name(queen_input, callback) {
     var fuse = new Fuse(queens, {keys: ['name']})
     var exact_queen_name = fuse.search(queen_input)
 
+    var name
     try {
       name = exact_queen_name[0].name
     } catch (err) {
@@ -132,7 +133,7 @@ function get_challenge_wins(queen, callback) {
       if (err) {
         return callback(err)
       }
-      
+
       // build an object of all challenges which have been won
       var challenges_won = {
         total_mini: 0,
