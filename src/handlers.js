@@ -70,7 +70,7 @@ var handlers = {
         console.error(err)
         return this.emit('error')
       }
-      this.emit(':tell', winner + ' was the winner of season ' + season_number)
+      this.emit(':tell', winner + ' was the winner of season ' + season_number.replace('A', 'all stars '))
     })
   },
 
@@ -132,7 +132,7 @@ var handlers = {
         console.error(err)
         return this.emit('error')
       }
-      var answer = 'The top three for season ' + season_number + ' are ' +
+      var answer = 'The top three for season ' + season_number.replace('A', 'all stars ') + ' are ' +
                     top_three[0] + ', ' +
                     top_three[1] + ', and ' +
                     top_three[2] + '.'
@@ -160,7 +160,7 @@ var handlers = {
         console.error(err)
         return this.emit('error')
       }
-      var answer = winner + ' was Miss Congeniality for season ' + season_number
+      var answer = winner + ' was Miss Congeniality for season ' + season_number.replace('A', 'all stars ')
       this.emit(':tell', answer)
     })
   },
