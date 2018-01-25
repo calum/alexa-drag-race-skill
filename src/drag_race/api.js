@@ -1,5 +1,7 @@
 var request = require('request')
 var Fuse = require('fuse.js')
+var winston = require('winston')
+winston.level = process.env.LOG_LEVEL
 
 var url = 'http://www.nokeynoshade.party/api/'
 
@@ -93,7 +95,7 @@ function get_season_winner(season_number, callback) {
     try {
       season_picked = season_picked[0].seasonNumber
     } catch (e) {
-      console.error(e)
+      winston.error(e)
       return callback(e)
     }
 
@@ -175,7 +177,7 @@ function get_season_top_three(season_number, callback) {
     try {
       season_picked = season_picked[0]
     } catch (e) {
-      console.error(e)
+      winston.error(e)
       return callback(e)
     }
 

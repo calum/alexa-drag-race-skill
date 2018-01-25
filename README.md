@@ -1,7 +1,8 @@
 [![Build Status](https://travis-ci.org/calum/alexa-drag-race-skill.svg?branch=master)](https://travis-ci.org/calum/alexa-drag-race-skill) ![dependencies](https://david-dm.org/calum/alexa-drag-race-skill.svg)
 
 
-# Drag Race Skill for Alexa
+# Drag Race Facts
+_A Drag Race Skill for Alexa_
 
 Alexa, Shantay you stay.
 
@@ -17,7 +18,7 @@ This skill is built using the [No Key No Shade drag race API](https://drag-race-
 
 1. What season was Katya in?
 2. Who were the top three in all stars two?
-3. Who was Miss Congeniality in season four?
+3. When is the next episode of Drag Race?
 
 
 ## Structure
@@ -25,7 +26,7 @@ The configuration for translating the users questions into `intents` is defined 
 
 `main.js` is the entry point for the application and users questions are passed to the handles in `src/handlers.js`.
 
-The api requests are all defined in `src/drag_race/` directory.
+The api requests are all defined in `src/drag_race/` directory. For API calls to [The TVDB](https://api.thetvdb.com/swagger#!/Authentication/post_login), you must set the environment variable `TVDB_API_KEY`. You can register an API key [here](https://thetvdb.com/?tab=apiregister).
 
 The `resources/` directory will hold some useful files for other parts of the application. For instance, the list of available drag queen names is taken from a file in `resources/` and used to generate the [intent slots](https://developer.amazon.com/docs/custom-skills/custom-interaction-model-reference.htm) for Alexa.
 
@@ -37,6 +38,7 @@ The `build/` directory will hold files which must be manually uploaded onto the 
 * What challenges did `{queen}` win?
 * Who were the top three in season `{number}`?
 * Who was Miss Congeniality in season `{number}`?
+* When is the next episode of Drag Race? [_TODO_]
 * Who did `{name}` for snatch game? [_TODO_]
 * Who won the `{challenge_name}` challenge? [_TODO_]
 
@@ -47,6 +49,8 @@ Any commits to the master branch will trigger `travis` to deploy a new version t
 `JSHint` is the chosen linter and `mocha` the chosen testing framework.
 `npm test` will run the linter and then the tests together.
 `npm run lint` will run just the linter - for when you want to quickly check a file for typos.
+
+See the testing [README]('test/README.md') file in `test/` for a more detailed explanation on the testing.
 
 ## Contribute
 Check out the [issues](https://github.com/calum/alexa-drag-race-skill/issues) page to see what needs to be done. Pull requests are welcome.

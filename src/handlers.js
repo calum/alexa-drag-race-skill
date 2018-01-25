@@ -1,24 +1,31 @@
 var api = require('./drag_race/api')
+var winston = require('winston')
+winston.level = process.env.LOG_LEVEL || 'info'
 
 var handlers = {
   'LaunchRequest': function() {
+    winston.info('LaunchRequest event')
     this.emit(':tell', 'She Already Had Had Hersesszzz')
   },
 
   'AMAZON.CancelIntent': function () {
+    winston.info('CancelIntent event')
     this.emit(':tell', 'Okay.')
   },
 
   'AMAZON.HelpIntent': function() {
+    winston.info('HelpIntent event')
     this.emit(':tell', 'Ask me who won season 4, who were the top three in all stars two, and who was miss congeniality in season 7.')
   },
 
   'AMAZON.StopIntent': function() {
+    winston.info('StopIntent event')
     this.emit(':tell', 'Sashay Away')
   },
 
   // "what season was {queen} in"
   'getseasonfromqueen': function() {
+    winston.info('getseasonfromqueen event')
     // get the queen name from the intent slots
     var queen = this.event.request.intent.slots.queen.value
 
@@ -29,19 +36,19 @@ var handlers = {
     // get the exact queen name:
     api.get_exact_queen_name(queen, (err, exact_queen) => {
       if (err) {
-        console.error(err)
+        winston.error(err)
         return this.emit('error')
       }
 
       api.get_season_from_queen(exact_queen, (err, seasons) => {
         if (err) {
-          console.error(err)
+          winston.error(err)
           return this.emit('error')
         }
 
         var answer = exact_queen + ' was in season ' + seasons.pop().replace('A', 'all stars ')
         while(seasons.length > 0) {
-          answer += ' and ' + seasons.pop().replace('A', 'all stars ')
+          answer += ' and season ' + seasons.pop().replace('A', 'all stars ')
         }
 
         // send the answer back
@@ -52,6 +59,7 @@ var handlers = {
 
   // "who won season {season_number}"
   'getwinnerfromseason': function() {
+    winston.info('getwinnerfromseason event')
     // get the season number from the intent slots
     var season_number = this.event.request.intent.slots.season_number.value
 
@@ -67,7 +75,7 @@ var handlers = {
 
     api.get_season_winner(season_number, (err, winner, used_season_number) => {
       if (err) {
-        console.error(err)
+        winston.error(err)
         return this.emit('error')
       }
       this.emit(':tell', winner + ' was the winner of season ' + used_season_number.replace('A', 'all stars '))
@@ -76,6 +84,7 @@ var handlers = {
 
   // "what challenges did {queen} win"
   'getchallengesfromqueen': function() {
+    winston.info('getchallengesfromqueen event')
     // get the queen name from the intent slots
     var queen = this.event.request.intent.slots.queen.value
 
@@ -86,13 +95,13 @@ var handlers = {
     // get the exact queen name:
     api.get_exact_queen_name(queen, (err, exact_queen) => {
       if (err) {
-        console.error(err)
+        winston.error(err)
         return this.emit('error')
       }
 
       api.get_challenge_wins(exact_queen, (err, challenges_won) => {
         if (err) {
-          console.error(err)
+          winston.error(err)
           return this.emit('error')
         }
 
@@ -114,6 +123,7 @@ var handlers = {
 
   // "Who were the top three in season {season_number}"
   'gettopthreefromseason': function() {
+    winston.info('gettopthreefromseason event')
     // get the season number from the intent slots
     var season_number = this.event.request.intent.slots.season_number.value
 
@@ -129,7 +139,7 @@ var handlers = {
 
     api.get_season_top_three(season_number, (err, top_three, used_season_number) => {
       if (err) {
-        console.error(err)
+        winston.error(err)
         return this.emit('error')
       }
       var answer = 'The top three for season ' + used_season_number.replace('A', 'all stars ') + ' are ' +
@@ -142,6 +152,7 @@ var handlers = {
 
   // "who was miss congeniality in season {season_number}"
   'getcongenialityfromseason': function() {
+    winston.info('getcongenialityfromseason event')
     // get the season number from the intent slots
     var season_number = this.event.request.intent.slots.season_number.value
 
@@ -157,7 +168,7 @@ var handlers = {
 
     api.miss_congeniality_season(season_number, (err, winner) => {
       if (err) {
-        console.error(err)
+        winston.error(err)
         return this.emit('error')
       }
       var answer = winner + ' was Miss Congeniality for season ' + season_number.replace('A', 'all stars ')
@@ -166,10 +177,12 @@ var handlers = {
   },
 
   'Unhandled': function() {
+    winston.info('Unhandled event')
     this.emit(':tell', 'Sorry, something went wrong. Try asking that again.')
   },
 
   'error': function() {
+    winston.info('error event')
     this.emit(':tell', 'Sorry, something went wrong. Try asking that again.')
   }
 }
