@@ -92,5 +92,13 @@
           ]
         }
       ]
+    },
+    {
+      "name": "nextepisode",
+      "samples": [
+        "when is the next episode",
+        "what date will the next episode air",
+        "how long until the next episode"
+      ]
     }
   ]

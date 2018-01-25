@@ -1,6 +1,8 @@
 var jsonify_drag_queens = require('../src/utils').jsonify_drag_queens
 var path = require('path')
 var fs = require('fs')
+var winston = require('winston')
+winston.level = process.env.LOG_LEVEL || 'info'
 
 var api = require('../src/drag_race/api')
 
@@ -8,29 +10,29 @@ var output_file = path.join(__dirname, '../config/types.json')
 
 jsonify_drag_queens(function(err, drag_queens) {
   if (err) {
-    return console.error(err)
+    return winston.error(err)
   }
   var types =  [
     {
-      "name": "drag_queen",
-      "values": []
+      'name': 'drag_queen',
+      'values': []
     },
     {
-      "name": "season_number",
-      "values": []
+      'name': 'season_number',
+      'values': []
     }
   ]
 
   drag_queens.forEach((drag_queen) => {
     var type = {
-      "id": null,
-      "name": {
-        "value": drag_queen["Drag Name"]
+      'id': null,
+      'name': {
+        'value': drag_queen['Drag Name']
       }
     }
-    if (drag_queen["Real Name"] != "") {
+    if (drag_queen['Real Name'] != '') {
       type.name.synonyms = [
-        drag_queen["Real Name"]
+        drag_queen['Real Name']
       ]
     }
 
@@ -46,13 +48,13 @@ jsonify_drag_queens(function(err, drag_queens) {
   // add the season numbers:
   api.get('seasons', (err, seasons) => {
     if (err) {
-      console.error(err)
+      winston.error(err)
     }
     seasons.forEach(season => {
       types[1].values.push({
-        "id": null,
-        "name": {
-          "value": season.seasonNumber.replace('A', 'all stars ')
+        'id': null,
+        'name': {
+          'value': season.seasonNumber.replace('A', 'all stars ')
         }
       })
     })
@@ -60,10 +62,10 @@ jsonify_drag_queens(function(err, drag_queens) {
     // write the file
     fs.writeFile(output_file, JSON.stringify(types, null, 2), 'utf8', function(err) {
       if (err) {
-        return console.error(err)
+        return winston.error(err)
       }
 
-      console.log('built config/types.json!')
+      winston.log('built config/types.json!')
     })
   })
 })

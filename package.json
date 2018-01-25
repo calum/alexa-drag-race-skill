@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node src/main.js",
-    "lint": "node_modules/.bin/jshint src/*.js src/*/*.js scripts/*.js",
+    "lint": "./node_modules/.bin/eslint src/*.js src/*/*.js scripts/*.js",
     "test": "npm run lint && mocha test/test.js",
     "build": "node scripts/build.js",
     "build_config": "node scripts/build_types.js"
@@ -22,7 +22,7 @@
     "winston": "^2.4.0"
   },
   "devDependencies": {
-    "jshint": "^2.9.5",
+    "eslint": "^4.16.0",
     "lambda-local": "^1.4.5",
     "mocha": "^4.1.0"
   }

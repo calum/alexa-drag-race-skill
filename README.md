@@ -46,7 +46,7 @@ The `build/` directory will hold files which must be manually uploaded onto the 
 Any commits to the master branch will trigger `travis` to deploy a new version to AWS Lambda. Pull requests will be automatically tested by travis but won't be deployed.
 
 ## Testing and linting
-`JSHint` is the chosen linter and `mocha` the chosen testing framework.
+`ESLint` is the chosen linter and `mocha` the chosen testing framework.
 `npm test` will run the linter and then the tests together.
 `npm run lint` will run just the linter - for when you want to quickly check a file for typos.
 

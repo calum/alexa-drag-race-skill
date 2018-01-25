@@ -1,4 +1,5 @@
 var api = require('./drag_race/api')
+var tvdb = require('./drag_race/tvdb_api')
 var winston = require('winston')
 winston.level = process.env.LOG_LEVEL || 'info'
 
@@ -172,6 +173,23 @@ var handlers = {
         return this.emit('error')
       }
       var answer = winner + ' was Miss Congeniality for season ' + season_number.replace('A', 'all stars ')
+      this.emit(':tell', answer)
+    })
+  },
+
+  'nextepisode': function() {
+    winston.info('nextepisode event')
+    tvdb.getNextEpisode((err, next_episode) => {
+      if(err) {
+        winston.error(err)
+        return this.emit('error')
+      }
+      if (!next_episode || !next_episode.firstAired) {
+        this.emit(':tell', 'Sorry, I was unable to find the date of the next episode.')
+      }
+      var date = next_episode.firstAired.split('-')
+      var speak_date = '<say-as interpret-as="date">'+date[0]+date[1]+date[2]+'</say-as>'
+      var answer = 'The next episode will be airing on the ' +speak_date
       this.emit(':tell', answer)
     })
   },

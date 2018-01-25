@@ -91,6 +91,11 @@ error.request.intent = {
   }
 }
 
+nextepisode = JSON.parse(JSON.stringify(template))
+nextepisode.request.intent = {
+  "name": "nextepisode"
+}
+
 
 module.exports = {
   launch: launch,
@@ -101,5 +106,6 @@ module.exports = {
   getchallengesfromqueen: getchallengesfromqueen,
   gettopthreefromseason: gettopthreefromseason,
   getcongenialityfromseason: getcongenialityfromseason,
-  error: error
+  error: error,
+  nextepisode: nextepisode
 }

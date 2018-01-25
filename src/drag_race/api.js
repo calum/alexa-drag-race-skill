@@ -101,7 +101,7 @@ function get_season_winner(season_number, callback) {
 
     // find the season the user is asking about
     var chosen_season = seasons.find(
-        (season) => season_picked == season.seasonNumber
+      (season) => season_picked == season.seasonNumber
     )
 
     if (!chosen_season) {
@@ -145,12 +145,12 @@ function get_challenge_wins(queen, callback) {
       challenges.forEach((challenge) => {
         if (challenge.won) {
           switch(challenge.type) {
-            case 'mini':
-              challenges_won.total_mini += 1
-              break
-            case 'main':
-              challenges_won.total_main += 1
-              break
+          case 'mini':
+            challenges_won.total_mini += 1
+            break
+          case 'main':
+            challenges_won.total_main += 1
+            break
           }
           challenges_won.names.push(challenge.description)
         }
