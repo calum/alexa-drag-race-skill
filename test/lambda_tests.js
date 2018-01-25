@@ -169,4 +169,22 @@ describe('AWS Lambda tests', function() {
       }
     })
   })
+
+  it('Should answer when the next episode is airing', function(done) {
+    winston.debug('Executing "When is the next episode?"')
+    lambda.execute({
+      event: intents.nextepisode,
+      lambdaFunc: drag_race_facts,
+      callback: function (err, data) {
+        if (err) {
+          return done(err)
+        }
+        if (data.response.outputSpeech.ssml.includes("Sorry, I was unable to find the date of the next episode.") ||
+            data.response.outputSpeech.ssml.includes("The next episode will be airing on the")) {
+          return done()
+        }
+        return done(new Error('Response was incorrect: '+JSON.stringify(data.response)))
+      }
+    })
+  })
 })
