@@ -6,6 +6,7 @@ cache:
   - node_modules
 deploy:
   provider: lambda
+  publish: true
   function_name: alexa_drag_queen_facts
   region: eu-west-1
   role: arn:aws:iam::040251125443:role/service-role/alexa
