@@ -16,11 +16,14 @@
   "dependencies": {
     "alexa-sdk": "^1.0.15",
     "csv": "^2.0.0",
+    "dotenv": "^4.0.0",
     "fuse.js": "^3.2.0",
-    "mocha": "^4.0.1",
-    "request": "^2.83.0"
+    "request": "^2.83.0",
+    "winston": "^2.4.0"
   },
   "devDependencies": {
-    "jshint": "^2.9.5"
+    "jshint": "^2.9.5",
+    "lambda-local": "^1.4.5",
+    "mocha": "^4.1.0"
   }
 }
