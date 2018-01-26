@@ -99,6 +99,9 @@ function getNextEpisode(today, callback) {
 
     Promise.all(promises).then(function() {
       // loop over air_dates to find the nearest to today
+      if (air_dates.length == 0) {
+        return callback()
+      }
       var closest_episode = air_dates[0]
       winston.debug('First episode: '+JSON.stringify(closest_episode, null, 2))
       var now = new Date(date)
