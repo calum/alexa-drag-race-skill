@@ -1,0 +1,15 @@
+---
+---
+
+$header-heading-color: white;
+$header-bg-color: #f03aff; //#ff38d4;
+$header-bg-color-secondary: #155799;
+$section-headings-color: $header-bg-color;
+
+$content-background-color:  #f0f0f0;
+
+@import "{{ site.theme }}";
+
+body {
+  background-color: $content-background-color;
+}
