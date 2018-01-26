@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/calum/alexa-drag-race-skill.svg?branch=master)](https://travis-ci.org/calum/alexa-drag-race-skill) ![dependencies](https://david-dm.org/calum/alexa-drag-race-skill.svg) [![Maintainability](https://api.codeclimate.com/v1/badges/409ed3abb15f08c7983e/maintainability)](https://codeclimate.com/github/calum/alexa-drag-race-skill/maintainability)
+[![Build Status](https://travis-ci.org/calum/alexa-drag-race-skill.svg?branch=master)](https://travis-ci.org/calum/alexa-drag-race-skill) ![dependencies](https://david-dm.org/calum/alexa-drag-race-skill.svg) [![Maintainability](https://api.codeclimate.com/v1/badges/409ed3abb15f08c7983e/maintainability)](https://codeclimate.com/github/calum/alexa-drag-race-skill/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/409ed3abb15f08c7983e/test_coverage)](https://codeclimate.com/github/calum/alexa-drag-race-skill/test_coverage)
 
 
 # Drag Race Facts
