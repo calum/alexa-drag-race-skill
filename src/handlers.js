@@ -52,6 +52,7 @@ var handlers = {
           answer += ' and season ' + seasons.pop().replace('A', 'all stars ')
         }
 
+        winston.info('season: '+answer)
         // send the answer back
         this.emit(':tell', answer)
       })
@@ -79,6 +80,7 @@ var handlers = {
         winston.error(err)
         return this.emit('error')
       }
+      winston.info('winner: '+winner)
       this.emit(':tell', winner + ' was the winner of season ' + used_season_number.replace('A', 'all stars '))
     })
   },
@@ -115,7 +117,7 @@ var handlers = {
         while(challenges_won.names.length > 0) {
           answer += '. ' + challenges_won.names.pop()
         }
-
+        winston.info('answer: '+answer)
         // send the answer back
         this.emit(':tell', answer)
       })
@@ -147,6 +149,7 @@ var handlers = {
                     top_three[0] + ', ' +
                     top_three[1] + ', and ' +
                     top_three[2] + '.'
+      winston.info('answer: '+answer)
       this.emit(':tell', answer)
     })
   },
@@ -173,6 +176,7 @@ var handlers = {
         return this.emit('error')
       }
       var answer = winner + ' was Miss Congeniality for season ' + season_number.replace('A', 'all stars ')
+      winston.info('answer: '+answer)
       this.emit(':tell', answer)
     })
   },
@@ -190,6 +194,7 @@ var handlers = {
       var date = next_episode.firstAired.split('-')
       var speak_date = '<say-as interpret-as="date">'+date[0]+date[1]+date[2]+'</say-as>'
       var answer = 'The next episode will be airing on the ' +speak_date
+      winston.info('answer: '+answer)
       this.emit(':tell', answer)
     })
   },
