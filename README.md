@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/calum/alexa-drag-race-skill.svg?branch=master)](https://travis-ci.org/calum/alexa-drag-race-skill) ![dependencies](https://david-dm.org/calum/alexa-drag-race-skill.svg)
+[![Build Status](https://travis-ci.org/calum/alexa-drag-race-skill.svg?branch=master)](https://travis-ci.org/calum/alexa-drag-race-skill) ![dependencies](https://david-dm.org/calum/alexa-drag-race-skill.svg) [![Maintainability](https://api.codeclimate.com/v1/badges/409ed3abb15f08c7983e/maintainability)](https://codeclimate.com/github/calum/alexa-drag-race-skill/maintainability)
 
 
 # Drag Race Facts
@@ -46,7 +46,7 @@ The `build/` directory will hold files which must be manually uploaded onto the 
 Any commits to the master branch will trigger `travis` to deploy a new version to AWS Lambda. Pull requests will be automatically tested by travis but won't be deployed.
 
 ## Testing and linting
-`ESLint` is the chosen linter and `mocha` the chosen testing framework.
+`ESLint` is the chosen linter and `mocha` the chosen testing framework. `Istanbul` is used to generate the code coverage reports.
 `npm test` will run the linter and then the tests together.
 `npm run lint` will run just the linter - for when you want to quickly check a file for typos.
 
