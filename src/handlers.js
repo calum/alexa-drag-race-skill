@@ -212,6 +212,7 @@ var handlers = {
       var date = next_episode.firstAired.split('-')
       var speak_date = '<say-as interpret-as="date">'+date[0]+date[1]+date[2]+'</say-as>'
       var answer = 'The next episode will be airing on the ' +speak_date
+      winston.info('answer: '+answer)
       this.emit(':tell', answer)
     })
   },
