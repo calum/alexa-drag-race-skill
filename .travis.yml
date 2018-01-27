@@ -36,6 +36,10 @@ after_deploy:
 - ACCESS_TOKEN=$ROLLBAR_TOKEN
 - ENVIRONMENT=production
 - REVISION=`git log -n 1 --pretty=format:"%H"`
+- curl https://api.rollbar.com/api/1/deploy/ \
+  -F access_token=$ACCESS_TOKEN \
+  -F environment=$ENVIRONMENT \
+  -F revision=$REVISION \
 env:
   global:
   - ENVIRONMENT=development
