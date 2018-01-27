@@ -1,8 +1,6 @@
 var lambda = require('lambda-local')
 var drag_race_facts = require('../src/main')
-var winston = require('winston')
-winston.level = process.env.LOG_LEVEL || 'info'
-winston.info('LOG_LEVEL set to '+winston.level)
+var logger = require('../src/logger')
 
 var intents = require('./test_data/test_intents')
 
@@ -10,13 +8,13 @@ var intents = require('./test_data/test_intents')
 describe('AWS Lambda tests', function() {
 
   before(function(done) {
-    winston.debug('Before function')
-    lambda.setLogger(winston)
+    logger.debug('Before function')
+    lambda.setLogger(logger)
     done()
   })
 
   it('should launch with RuPaul quote', function(done) {
-    winston.debug('Executing "Start drag race facts."')
+    logger.debug('Executing "Start drag race facts."')
     lambda.execute({
       event: intents.launch,
       lambdaFunc: drag_race_facts,
@@ -33,7 +31,7 @@ describe('AWS Lambda tests', function() {
   })
 
   it('should give useful help', function(done) {
-    winston.debug('Executing "help."')
+    logger.debug('Executing "help."')
     lambda.execute({
       event: intents.help,
       lambdaFunc: drag_race_facts,
@@ -52,7 +50,7 @@ describe('AWS Lambda tests', function() {
   })
 
   it('should say something when stopped', function(done) {
-    winston.debug('Executing "stop."')
+    logger.debug('Executing "stop."')
     lambda.execute({
       event: intents.stop,
       lambdaFunc: drag_race_facts,
@@ -69,7 +67,7 @@ describe('AWS Lambda tests', function() {
   })
 
   it('should get the correct season for a queen', function(done) {
-    winston.debug('Executing "What season is Katya in?"')
+    logger.debug('Executing "What season is Katya in?"')
     lambda.execute({
       event: intents.season_from_queen,
       lambdaFunc: drag_race_facts,
@@ -86,7 +84,7 @@ describe('AWS Lambda tests', function() {
   })
 
   it('should get the correct winner for a season', function(done) {
-    winston.debug('Executing "Who won season five?"')
+    logger.debug('Executing "Who won season five?"')
     lambda.execute({
       event: intents.getwinnerfromseason,
       lambdaFunc: drag_race_facts,
@@ -103,7 +101,7 @@ describe('AWS Lambda tests', function() {
   })
 
   it('should get the correct number of challenges won for a queen', function(done) {
-    winston.debug('Executing "What challenges did Willam win?"')
+    logger.debug('Executing "What challenges did Willam win?"')
     lambda.execute({
       event: intents.getchallengesfromqueen,
       lambdaFunc: drag_race_facts,
@@ -120,7 +118,7 @@ describe('AWS Lambda tests', function() {
   })
 
   it('should get the top three for a given season', function(done) {
-    winston.debug('Executing "Top three for season four?"')
+    logger.debug('Executing "Top three for season four?"')
     lambda.execute({
       event: intents.gettopthreefromseason,
       lambdaFunc: drag_race_facts,
@@ -137,7 +135,7 @@ describe('AWS Lambda tests', function() {
   })
 
   it('should get the Miss Congeniality winner for a given season', function(done) {
-    winston.debug('Executing "Miss congeniality for season one?"')
+    logger.debug('Executing "Miss congeniality for season one?"')
     lambda.execute({
       event: intents.getcongenialityfromseason,
       lambdaFunc: drag_race_facts,
@@ -154,7 +152,7 @@ describe('AWS Lambda tests', function() {
   })
 
   it('Should handle an error gracefully', function(done) {
-    winston.debug('Executing "error"')
+    logger.debug('Executing "error"')
     lambda.execute({
       event: intents.error,
       lambdaFunc: drag_race_facts,
@@ -171,7 +169,7 @@ describe('AWS Lambda tests', function() {
   })
 
   it('Should answer when the next episode is airing', function(done) {
-    winston.debug('Executing "When is the next episode?"')
+    logger.debug('Executing "When is the next episode?"')
     lambda.execute({
       event: intents.nextepisode,
       lambdaFunc: drag_race_facts,

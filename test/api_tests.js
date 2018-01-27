@@ -1,8 +1,7 @@
 var api = require('../src/drag_race/api')
 var tvdb = require('../src/drag_race/tvdb_api')
 
-var winston = require('winston')
-winston.level = process.env.LOG_LEVEL || 'info'
+var logger = require('../src/logger')
 
 describe('No Key No Shade API Tests', function() {
   it('should fix any slight typos in a queen\'s name', function(done) {

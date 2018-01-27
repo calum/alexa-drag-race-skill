@@ -38,12 +38,12 @@ The `build/` directory will hold files which must be manually uploaded onto the 
 * What challenges did `{queen}` win?
 * Who were the top three in season `{number}`?
 * Who was Miss Congeniality in season `{number}`?
-* When is the next episode of Drag Race? [_TODO_]
+* When is the next episode of Drag Race?
 * Who did `{name}` for snatch game? [_TODO_]
 * Who won the `{challenge_name}` challenge? [_TODO_]
 
 ## Continuous Deployment
-Any commits to the master branch will trigger `travis` to deploy a new version to AWS Lambda. Pull requests will be automatically tested by travis but won't be deployed.
+Any commits to the master branch with a `git` tag, will trigger `travis` to deploy a new version to AWS Lambda. Pull requests will be automatically tested by travis but won't be deployed.
 
 ## Testing and linting
 `ESLint` is the chosen linter and `mocha` the chosen testing framework. `Istanbul` is used to generate the code coverage reports.
@@ -51,6 +51,11 @@ Any commits to the master branch will trigger `travis` to deploy a new version t
 `npm run lint` will run just the linter - for when you want to quickly check a file for typos.
 
 See the testing [README]('test/README.md') file in `test/` for a more detailed explanation on the testing.
+
+## Monitoring
+The GitHub extension, [Rollbar](https://rollbar.com/calumforster/alexa-drag-race-skill) is used to monitor any errors or logs from the alexa skill. The monitoring dashboard can be found [here](https://rollbar.com/calumforster/alexa-drag-race-skill/items/).
+
+When an error is logged, a issue is raised automatically by Rollbar.
 
 ## Contribute
 Check out the [issues](https://github.com/calum/alexa-drag-race-skill/issues) page to see what needs to be done. Pull requests are welcome.
