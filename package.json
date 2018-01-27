@@ -20,7 +20,9 @@
     "dotenv": "^4.0.0",
     "fuse.js": "^3.2.0",
     "request": "^2.83.0",
-    "winston": "^2.4.0"
+    "rollbar": "^2.3.7",
+    "winston": "^2.4.0",
+    "winston-rollbar2": "^2.1.4"
   },
   "devDependencies": {
     "eslint": "^4.16.0",
