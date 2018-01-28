@@ -4,7 +4,7 @@
 # Drag Race Facts
 _A Drag Race Skill for Alexa_
 
-Alexa, Shantay you stay.
+Alexa, shantay you stay.
 
 ![logo](build/logo_small.png)
 
