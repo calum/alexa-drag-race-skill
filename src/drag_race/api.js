@@ -126,14 +126,11 @@ function get_season_winner(season_number, callback) {
 function get_challenge_wins(queen, callback) {
   // get the queen's id
   get_queen_id(queen, (err, id) => {
-    if (err) {
-      return callback(err)
-    }
+    if (err) return callback(err)
+
     // get the queen's challenges
     get('queens/'+id+'/challenges', (err, challenges) => {
-      if (err) {
-        return callback(err)
-      }
+      if (err) return callback(err)
 
       // build an object of all challenges which have been won
       var challenges_won = {
@@ -143,15 +140,9 @@ function get_challenge_wins(queen, callback) {
       }
       challenges.forEach((challenge) => {
         if (challenge.won) {
-          switch(challenge.type) {
-          case 'mini':
-            challenges_won.total_mini += 1
-            break
-          case 'main':
-            challenges_won.total_main += 1
-            break
-          }
           challenges_won.names.push(challenge.description)
+          if (challenge.type == 'main') challenges_won.total_main += 1
+          if (challenge.type == 'mini') challenges_won.total_mini += 1
         }
       })
 

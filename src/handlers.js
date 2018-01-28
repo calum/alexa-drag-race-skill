@@ -1,8 +1,15 @@
 var api = require('./drag_race/api')
 var tvdb = require('./drag_race/tvdb_api')
 var logger = require('./logger')
+var res_gen = require('./response_generator')
 
 var handlers = {
+  // Useful function to do any error handling
+  handle_error: function(err) {
+    if (err) logger.error(err)
+    return this.emit('error')
+  },
+
   'LaunchRequest': function() {
     logger.info('LaunchRequest event')
     this.emit(':tell', 'She Already Had Had Hersesszzz')
@@ -35,16 +42,10 @@ var handlers = {
 
     // get the exact queen name:
     api.get_exact_queen_name(queen, (err, exact_queen) => {
-      if (err) {
-        logger.error(err)
-        return this.emit('error')
-      }
+      if (err) this.handle_error(err)
 
       api.get_season_from_queen(exact_queen, (err, seasons) => {
-        if (err) {
-          logger.error(err)
-          return this.emit('error')
-        }
+        if (err) this.handle_error(err)
 
         var answer = exact_queen + ' was in season ' + seasons.pop().replace('A', 'all stars ')
         while(seasons.length > 0) {
@@ -75,16 +76,13 @@ var handlers = {
     season_number = season_number.trim()
 
     api.get_season_winner(season_number, (err, winner, used_season_number) => {
-      if (err) {
-        logger.error(err)
-        return this.emit('error')
-      }
+      if (err) this.handle_error(err)
       logger.info('winner: '+winner)
       this.emit(':tell', winner + ' was the winner of season ' + used_season_number.replace('A', 'all stars '))
     })
   },
 
-  // "what challenges did {queen} win"
+  // "what challenges did {queen} win?"
   'getchallengesfromqueen': function() {
     logger.info('getchallengesfromqueen event')
     // get the queen name from the intent slots
@@ -96,28 +94,15 @@ var handlers = {
 
     // get the exact queen name:
     api.get_exact_queen_name(queen, (err, exact_queen) => {
-      if (err) {
-        logger.error(err)
-        return this.emit('error')
-      }
+      if (err) this.handle_error(err)
 
       api.get_challenge_wins(exact_queen, (err, challenges_won) => {
-        if (err) {
-          logger.error(err)
-          return this.emit('error')
-        }
+        if (err) this.handle_error(err)
 
-        var answer = exact_queen + ' has won ' + challenges_won.total_main +
-                      ' main challenges and ' + challenges_won.total_mini +
-                      ' mini challenges: '
-        if (challenges_won.names.length > 0) {
-          answer += challenges_won.names.pop()
-        }
-        while(challenges_won.names.length > 0) {
-          answer += '. ' + challenges_won.names.pop()
-        }
-        logger.info('answer: '+answer)
+        var answer = res_gen.challenges_from_queen_response(exact_queen, challenges_won)
+
         // send the answer back
+        logger.info('answer: '+answer)
         this.emit(':tell', answer)
       })
     })
@@ -140,10 +125,7 @@ var handlers = {
     season_number = season_number.trim()
 
     api.get_season_top_three(season_number, (err, top_three, used_season_number) => {
-      if (err) {
-        logger.error(err)
-        return this.emit('error')
-      }
+      if (err) this.handle_error(err)
       var answer = 'The top three for season ' + used_season_number.replace('A', 'all stars ') + ' are ' +
                     top_three[0] + ', ' +
                     top_three[1] + ', and ' +
@@ -170,10 +152,7 @@ var handlers = {
     season_number = season_number.trim()
 
     api.miss_congeniality_season(season_number, (err, winner) => {
-      if (err) {
-        logger.error(err)
-        return this.emit('error')
-      }
+      if (err) this.handle_error(err)
       var answer = winner + ' was Miss Congeniality for season ' + season_number.replace('A', 'all stars ')
       logger.info('answer: '+answer)
       this.emit(':tell', answer)
@@ -183,10 +162,7 @@ var handlers = {
   'nextepisode': function() {
     logger.info('nextepisode event')
     tvdb.getNextEpisode((err, next_episode) => {
-      if(err) {
-        logger.error(err)
-        return this.emit('error')
-      }
+      if (err) this.handle_error(err)
       if (!next_episode || !next_episode.firstAired) {
         this.emit(':tell', 'Sorry, I was unable to find the date of the next episode.')
       }
@@ -199,8 +175,7 @@ var handlers = {
   },
 
   'Unhandled': function() {
-    logger.error('Unhandled event' + JSON.stringify(this.event.request, null, 2))
-    this.emit(':tell', 'Sorry, something went wrong. Try asking that again.')
+    this.emit('error')
   },
 
   'error': function() {

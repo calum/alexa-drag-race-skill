@@ -58,61 +58,81 @@ function allEpisodes(id, token, callback) {
 }
 
 /**
+* Returns a promise which fullfils with an array of
+* unaired episodes.
+**/
+function findUnairedEpisodes(date, id, token) {
+  var unaired = []
+
+  return new Promise(function(resolve, reject) {
+    allEpisodes(id, token, function(err, episodes) {
+      if (err) {
+        logger.error(err)
+        return reject(err)
+      }
+      episodes.forEach(episode => {
+        // exclude all episodes with a firstAired before today
+        logger.debug('Episode '+episode.airedEpisodeNumber+' from season '
+        +episode.airedSeason + ' has aired dated: '+episode.firstAired)
+        if (episode.firstAired >= date) {
+          unaired.push(episode)
+        }
+      })
+      return resolve(unaired)
+    })
+  })
+}
+
+/**
+* function to loop over an array of episodes
+* and returns the episode with an air date
+* closest to today's date
+**/
+function findClosestEpisode(date, unaired) {
+  var closest_episode = unaired[0]
+  logger.debug('First episode: '+JSON.stringify(closest_episode, null, 2))
+  var now = new Date(date)
+  var days = (new Date(closest_episode.firstAired)) - now
+  unaired.forEach(episode => {
+    var date_to_air = new Date(episode.firstAired)
+    if (date_to_air - now < days) {
+      days = date_to_air - now
+      closest_episode = episode
+    }
+  })
+
+  return closest_episode
+}
+
+/**
 * Searches over Drag Race & Drag Race All Stars
 * to find the next air date available
 **/
 function getNextEpisode(today, callback) {
   getToken(function(err, token) {
     // get the date in the format YYYY-MM-DD
-    var date
+    var date = today
     if (!callback) {
       callback = today
       date = new Date(Date.now()).toISOString().split('T')[0]
-    } else {
-      date = today
     }
 
-    var air_dates = []
+    // find all the unaired episodes from all stars and standard drag race
+    var promises = [
+      findUnairedEpisodes(date, series[0], token),
+      findUnairedEpisodes(date, series[1], token)
+    ]
 
-    var promises = []
-    for(var i=0; i<series.length; i++) {
-      var id = series[i]
-      promises.push(new Promise(function(resolve, reject) {
-        allEpisodes(id, token, function(err, episodes) {
-          if (err) {
-            logger.error(err)
-            return reject(err)
-          }
-          episodes.forEach(episode => {
-            // exclude all episodes with a firstAired before today
-            logger.debug('Episode '+episode.airedEpisodeNumber+' from season '
-            +episode.airedSeason + ' has aired dated: '+episode.firstAired)
-            if (episode.firstAired >= date) {
-              air_dates.push(episode)
-            }
-          })
-          return resolve()
-        })
-      }))
-    }
+    Promise.all(promises).then(function(unaired_arrays) {
+      // merge the two arrays of episodes
+      var unaired = unaired_arrays[0].concat(unaired_arrays[1])
 
-    Promise.all(promises).then(function() {
       // loop over air_dates to find the nearest to today
-      if (air_dates.length == 0) {
+      if (unaired.length == 0) {
         return callback()
       }
-      var closest_episode = air_dates[0]
-      logger.debug('First episode: '+JSON.stringify(closest_episode, null, 2))
-      var now = new Date(date)
-      var days = (new Date(closest_episode.firstAired)) - now
-      air_dates.forEach(episode => {
-        var date_to_air = new Date(episode.firstAired)
-        if (date_to_air - now < days) {
-          days = date_to_air - now
-          closest_episode = episode
-        }
-      })
-      return callback(null, closest_episode)
+
+      return callback(null, findClosestEpisode(date, unaired))
     }, function(err) {
       return callback(err)
     })
