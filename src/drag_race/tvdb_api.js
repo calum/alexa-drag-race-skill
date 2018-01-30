@@ -41,8 +41,10 @@ function getToken(callback) {
 * Returns all episodes given a series id
 **/
 function allEpisodes(id, token, callback) {
-  if (!callback || !token) {
-    return logger.error('You must provide a TVDB api token')
+  if (!callback) {
+    callback = token
+    var err = new Error('You must provide a TVDB api token')
+    return callback(err)
   }
 
   var options = {
@@ -156,5 +158,7 @@ module.exports = {
   /**
   * Exported for testing
   **/
-  _getToken: getToken
+  _getToken: getToken,
+  _allEpisodes: allEpisodes,
+  _findClosestEpisode: findClosestEpisode
 }
