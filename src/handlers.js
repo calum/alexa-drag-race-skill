@@ -3,6 +3,11 @@ var tvdb = require('./drag_race/tvdb_api')
 var logger = require('./logger')
 var res_gen = require('./response_generator')
 
+if (!process.env.TVDB_API_KEY) {
+  logger.error('You must set the environment varaible TVDB_API_KEY to hold your API key for the TVDB. See README for more info.')
+}
+tvdb.setKey(process.env.TVDB_API_KEY)
+
 var handlers = {
   // Useful function to do any error handling
   handle_error: function(err) {
