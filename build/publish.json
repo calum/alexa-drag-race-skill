@@ -1,0 +1,10 @@
+{
+  "Short Skill Description": "Alexa, Shantay you stay.",
+  "Full Skill Description": "Drag Race Facts can answer questions about any of the queens and seasons from RuPaul's Drag Race.\nThis Alexa skill is open source and so if you have a question that isn't currently supported, you can put an issue on our GitHub page or even add the functionality yourself!\nThe GitHub page is found at https://github.com/calum/alexa-drag-race-skill.\nThis skill is built using the No Key No Shade drag race API.",
+  "Example Phrases": [
+    "Alexa, ask Drag Race facts what season was Katya in?",
+    "Alexa, ask Drag Race facts who were the top three in season seven?",
+    "Alexa, ask Drag Race facts who was Miss Congeniality in season four?"
+  ],
+  "Keywords": "drag,race,rupaul,facts"
+}

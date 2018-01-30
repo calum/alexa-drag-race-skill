@@ -2,7 +2,7 @@
 
 
 # Drag Race Facts
-_A Drag Race Skill for Alexa_
+_A Fan Made Drag Race Skill for Alexa_
 
 Alexa, shantay you stay.
 
