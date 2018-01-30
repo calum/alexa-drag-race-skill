@@ -1,11 +1,7 @@
 var request = require('request')
 var logger = require('../logger')
 
-if (!process.env.TVDB_API_KEY) {
-  logger.error('You must set the environment varaible TVDB_API_KEY to hold your API key for the TVDB. See README for more info.')
-}
-
-var api_key = process.env.TVDB_API_KEY
+var api_key
 
 var api_url = 'https://api.thetvdb.com/'
 
@@ -15,13 +11,26 @@ var series = [
 ]
 
 /**
+* Set the TVDB API key
+**/
+function setKey(key) {
+  api_key = key
+}
+
+/**
 * Gets an API token
 **/
 function getToken(callback) {
+  logger.debug('Using TVDB API KEY: '+api_key)
   request.post(api_url+'login', {json: {'apikey':api_key}}, function(err, response) {
     if (err) {
       logger.error(err)
       return callback(err)
+    }
+    if (response.body.Error) {
+      var request_err = new Error(response.body.Error)
+      logger.error(request_err)
+      return callback(request_err)
     }
     logger.debug('TVDB api token: '+response.body.token)
     return callback(null, response.body.token)
@@ -141,5 +150,11 @@ function getNextEpisode(today, callback) {
 
 module.exports = {
   getToken: getToken,
-  getNextEpisode: getNextEpisode
+  getNextEpisode: getNextEpisode,
+  setKey: setKey,
+
+  /**
+  * Exported for testing
+  **/
+  _getToken: getToken
 }

@@ -3,8 +3,26 @@ var assert = require('assert')
 
 var logger = require('../src/logger')
 
+tvdb.setKey(process.env.TVDB_API_KEY)
+
 describe('The TVDB API Tests', function() {
   var api_token
+
+  it('should fail when there is no TVDB api key', function(done) {
+    tvdb.setKey(undefined)
+
+    tvdb._getToken(function(err, token) {
+      // set the key back for the other tests
+      tvdb.setKey(process.env.TVDB_API_KEY)
+
+      if (err) {
+        logger.error(err)
+        return done()
+      }
+      return done(new Error('Expected an error to be returned.'))
+    })
+
+  })
 
   it('should get a valid API token', function(done) {
     tvdb.getToken(function (err, api_token) {
