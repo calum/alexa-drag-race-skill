@@ -6,7 +6,8 @@ var intents = require('./test_data/test_intents')
 
 
 describe('AWS Lambda tests', function() {
-
+  this.timeout('3000')
+  
   before(function(done) {
     logger.debug('Before function')
     lambda.setLogger(logger)
@@ -182,6 +183,23 @@ describe('AWS Lambda tests', function() {
           return done()
         }
         return done(new Error('Response was incorrect: '+JSON.stringify(data.response)))
+      }
+    })
+  })
+
+  it('Should play a random quote sound file', function(done) {
+    logger.debug('Executing "Play me a quote."')
+    lambda.execute({
+      event: intents.randomquote,
+      lambdaFunc: drag_race_facts,
+      callback: function (err, data) {
+        if (err) {
+          return done(err)
+        }
+        if (data.response.outputSpeech.ssml.includes('<audio src="')) {
+          return done()
+        }
+        return done(new Error('Audio was not in the response'))
       }
     })
   })

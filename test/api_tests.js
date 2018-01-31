@@ -4,6 +4,8 @@ var tvdb = require('../src/drag_race/tvdb_api')
 var logger = require('../src/logger')
 
 describe('No Key No Shade API Tests', function() {
+  this.timeout('3000')
+  
   it('should fix any slight typos in a queen\'s name', function(done) {
     api.get_exact_queen_name('katya', (err, exact_name) => {
       if (exact_name == "Katya Zamolodchikova") {
