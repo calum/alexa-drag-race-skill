@@ -4,6 +4,7 @@ Drag Race Facts can answer questions about any of the queens and seasons from Ru
 
 ## Examples
 * Alexa, ask Drag Race Facts which season Katya was in in?
+* Alexa, ask Drag Race Facts to play a random quote.
 * Alexa, ask Drag Race Facts who were the top three in all stars two?
 * Alexa, ask Drag Race Facts when is the next episode of Drag Race?
 * Alexa, ask Drag Race Facts who won season seven?

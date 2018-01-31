@@ -28,7 +28,7 @@ var handlers = {
 
   'AMAZON.HelpIntent': function() {
     logger.info('HelpIntent event')
-    this.emit(':tell', 'Ask me who won season 4, who were the top three in all stars two, and who was miss congeniality in season 7.')
+    this.emit(':tell', 'I can do many things! Ask me who won season 4, who were the top three in all stars two, and who was miss congeniality in season 7. I can also play you a random quote from a queen.')
   },
 
   'AMAZON.StopIntent': function() {
