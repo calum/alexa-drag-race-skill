@@ -1,12 +1,29 @@
-[![Build Status](https://travis-ci.org/calum/alexa-drag-race-skill.svg?branch=master)](https://travis-ci.org/calum/alexa-drag-race-skill) ![dependencies](https://david-dm.org/calum/alexa-drag-race-skill.svg) [![Maintainability](https://api.codeclimate.com/v1/badges/409ed3abb15f08c7983e/maintainability)](https://codeclimate.com/github/calum/alexa-drag-race-skill/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/409ed3abb15f08c7983e/test_coverage)](https://codeclimate.com/github/calum/alexa-drag-race-skill/test_coverage)
+<div align="center">
+  <img src="https://github.com/calum/alexa-drag-race-skill/raw/master/docs/assets/logo.png" alt="Drag Race Facts" />
+</div>
 
+<h1 align="center">
+Drag Race Facts
+</h1>
 
-# Drag Race Facts
-_A Fan Made Drag Race Skill for Alexa_
+<div align="center">
+  <a href="https://travis-ci.org/calum/alexa-drag-race-skill">
+    <img src="https://travis-ci.org/calum/alexa-drag-race-skill.svg?branch=master" alt="Build Status" />
+  </a>
+  <a href="https://david-dm.org/calum/alexa-drag-race-skill.svg">
+    <img src="https://david-dm.org/calum/alexa-drag-race-skill.svg" alt="dependencies" />
+  </a>
+  <a href="https://codeclimate.com/github/calum/alexa-drag-race-skill/maintainability">
+    <img src="https://api.codeclimate.com/v1/badges/409ed3abb15f08c7983e/maintainability" alt="Maintainability" />
+  </a>
+  <a href="https://codeclimate.com/github/calum/alexa-drag-race-skill/test_coverage">
+    <img src="https://api.codeclimate.com/v1/badges/409ed3abb15f08c7983e/test_coverage" alt="Code Coverage" />
+  </a>
+</div>
 
-Alexa, shantay you stay.
+<div align="center">Alexa, shantay you stay! 👠</div>
 
-![logo](build/logo_small.png)
+<br />
 
 Drag Race Facts can answer questions about any of the queens and seasons from RuPaul's Drag Race.
 
@@ -59,3 +76,5 @@ When an error is logged, a issue is raised automatically by Rollbar.
 
 ## Contribute
 Check out the [issues](https://github.com/calum/alexa-drag-race-skill/issues) page to see what needs to be done. Pull requests are welcome.
+
+_A Fan Made Drag Race Skill for Alexa_
