@@ -51,13 +51,12 @@ The `build/` directory will hold files which must be manually uploaded onto the 
 
 ## Questions that Alexa can answer
 * What season was `{queen}` in?
+* Play a random quote!
 * Who won season `{number}`?
 * What challenges did `{queen}` win?
 * Who were the top three in season `{number}`?
 * Who was Miss Congeniality in season `{number}`?
 * When is the next episode of Drag Race?
-* Who did `{name}` for snatch game? [_TODO_]
-* Who won the `{challenge_name}` challenge? [_TODO_]
 
 ## Continuous Deployment
 Any commits to the master branch with a `git` tag, will trigger `travis` to deploy a new version to AWS Lambda. Pull requests will be automatically tested by travis but won't be deployed.

@@ -19,7 +19,12 @@ function challenges_from_queen_response(queen, challenges) {
   return answer
 }
 
+function short_audio(mp3_url) {
+  return '<speak><audio src="'+mp3_url+'"/></speak>'
+}
+
 
 module.exports = {
-  challenges_from_queen_response: challenges_from_queen_response
+  challenges_from_queen_response: challenges_from_queen_response,
+  short_audio: short_audio
 }

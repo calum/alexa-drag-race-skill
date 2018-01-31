@@ -96,6 +96,11 @@ nextepisode.request.intent = {
   "name": "nextepisode"
 }
 
+randomquote = JSON.parse(JSON.stringify(template))
+randomquote.request.intent = {
+  "name": "randomquote"
+}
+
 
 module.exports = {
   launch: launch,
@@ -107,5 +112,6 @@ module.exports = {
   gettopthreefromseason: gettopthreefromseason,
   getcongenialityfromseason: getcongenialityfromseason,
   error: error,
-  nextepisode: nextepisode
+  nextepisode: nextepisode,
+  randomquote: randomquote
 }

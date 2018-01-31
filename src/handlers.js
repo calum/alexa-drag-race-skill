@@ -2,6 +2,7 @@ var api = require('./drag_race/api')
 var tvdb = require('./drag_race/tvdb_api')
 var logger = require('./logger')
 var res_gen = require('./response_generator')
+var sounds = require('./sounds')
 
 if (!process.env.TVDB_API_KEY) {
   logger.error('You must set the environment varaible TVDB_API_KEY to hold your API key for the TVDB. See README for more info.')
@@ -27,7 +28,7 @@ var handlers = {
 
   'AMAZON.HelpIntent': function() {
     logger.info('HelpIntent event')
-    this.emit(':tell', 'Ask me who won season 4, who were the top three in all stars two, and who was miss congeniality in season 7.')
+    this.emit(':tell', 'I can do many things! Ask me who won season 4, who were the top three in all stars two, and who was miss congeniality in season 7. I can also play you a random quote from a queen.')
   },
 
   'AMAZON.StopIntent': function() {
@@ -177,6 +178,16 @@ var handlers = {
       logger.info('answer: '+answer)
       this.emit(':tell', answer)
     })
+  },
+
+  'randomquote': function() {
+    logger.info('randomquote event')
+    var mp3_url = sounds.get_random_quote()
+
+    var answer = res_gen.short_audio(mp3_url)
+
+    logger.info('answer: '+answer)
+    this.emit(':tell', answer)
   },
 
   'Unhandled': function() {

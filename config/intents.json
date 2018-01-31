@@ -100,5 +100,14 @@
         "what date will the next episode air",
         "how long until the next episode"
       ]
+    },
+    {
+      "name": "randomquote",
+      "samples": [
+        "play a random quote",
+        "random drag race quote",
+        "play a quote from one of the queens",
+        "play a catch phrase"
+      ]
     }
   ]

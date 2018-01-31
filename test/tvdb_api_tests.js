@@ -6,6 +6,8 @@ var logger = require('../src/logger')
 tvdb.setKey(process.env.TVDB_API_KEY)
 
 describe('The TVDB API Tests', function() {
+  this.timeout('3000')
+  
   var api_token
 
   it('should fail when there is no TVDB api key', function(done) {
