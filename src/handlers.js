@@ -18,7 +18,7 @@ var handlers = {
 
   'LaunchRequest': function() {
     logger.info('LaunchRequest event')
-    this.emit(':tell', 'She Already Had Had Hersesszzz')
+    this.emit(':tell', 'She done already done had herses')
   },
 
   'AMAZON.CancelIntent': function () {
@@ -187,6 +187,12 @@ var handlers = {
     var answer = res_gen.short_audio(mp3_url)
 
     logger.info('answer: '+answer)
+    this.emit(':tell', answer)
+  },
+
+  'howsyourhead': function() {
+    logger.info('How is your head?')
+    var answer = 'I have never had any complaints'
     this.emit(':tell', answer)
   },
 

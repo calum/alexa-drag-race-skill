@@ -57,6 +57,7 @@ The `build/` directory will hold files which must be manually uploaded onto the 
 * Who were the top three in season `{number}`?
 * Who was Miss Congeniality in season `{number}`?
 * When is the next episode of Drag Race?
+* How's your head?
 
 ## Continuous Deployment
 Any commits to the master branch with a `git` tag, will trigger `travis` to deploy a new version to AWS Lambda. Pull requests will be automatically tested by travis but won't be deployed.
