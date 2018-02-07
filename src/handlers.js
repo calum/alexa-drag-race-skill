@@ -193,6 +193,8 @@ var handlers = {
   'howsyourhead': function() {
     logger.info('How is your head?')
     var answer = 'I have never had any complaints'
+
+    logger.info('answer: ' + answer)
     this.emit(':tell', answer)
   },
 

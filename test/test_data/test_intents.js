@@ -102,7 +102,7 @@ randomquote.request.intent = {
 }
 
 howsyourhead = JSON.parse(JSON.stringify(template))
-randomquote.request.intent = {
+howsyourhead.request.intent = {
   "name": "howsyourhead"
 }
 

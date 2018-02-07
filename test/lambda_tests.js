@@ -6,7 +6,7 @@ var intents = require('./test_data/test_intents')
 
 
 describe('AWS Lambda tests', function() {
-  this.timeout('3000')
+  this.timeout('4000')
 
   before(function(done) {
     logger.debug('Before function')
