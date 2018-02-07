@@ -101,6 +101,11 @@ randomquote.request.intent = {
   "name": "randomquote"
 }
 
+howsyourhead = JSON.parse(JSON.stringify(template))
+howsyourhead.request.intent = {
+  "name": "howsyourhead"
+}
+
 
 module.exports = {
   launch: launch,
@@ -113,5 +118,6 @@ module.exports = {
   getcongenialityfromseason: getcongenialityfromseason,
   error: error,
   nextepisode: nextepisode,
-  randomquote: randomquote
+  randomquote: randomquote,
+  howsyourhead: howsyourhead
 }

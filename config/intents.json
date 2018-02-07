@@ -109,5 +109,13 @@
         "play a quote from one of the queens",
         "play a catch phrase"
       ]
+    },
+    {
+      "name": "howsyourhead",
+      "samples": [
+        "how's your head",
+        "how is your head",
+        "how is the head"
+      ]
     }
   ]

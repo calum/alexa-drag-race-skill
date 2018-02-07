@@ -6,8 +6,8 @@ var intents = require('./test_data/test_intents')
 
 
 describe('AWS Lambda tests', function() {
-  this.timeout('3000')
-  
+  this.timeout('4000')
+
   before(function(done) {
     logger.debug('Before function')
     lambda.setLogger(logger)
@@ -23,7 +23,7 @@ describe('AWS Lambda tests', function() {
         if (err) {
           return done(err)
         }
-        if (data.response.outputSpeech.ssml.includes("She Already Had Had Hersesszzz")) {
+        if (data.response.outputSpeech.ssml.includes("She done already done had herses")) {
           return done()
         }
         return done(new Error('Response was incorrect: '+JSON.stringify(data.response)))
@@ -196,10 +196,29 @@ describe('AWS Lambda tests', function() {
         if (err) {
           return done(err)
         }
+        logger.debug("response quote: "+data.response.outputSpeech.ssml)
         if (data.response.outputSpeech.ssml.includes('<audio src="')) {
           return done()
         }
         return done(new Error('Audio was not in the response'))
+      }
+    })
+  })
+
+  it('Should play a answer "how is your head?"', function(done) {
+    logger.debug('Executing "How is your head?"')
+    lambda.execute({
+      event: intents.howsyourhead,
+      lambdaFunc: drag_race_facts,
+      callback: function (err, data) {
+        if (err) {
+          return done(err)
+        }
+        logger.debug("response head: "+data.response.outputSpeech.ssml)
+        if (data.response.outputSpeech.ssml.includes('never had any complaints')) {
+          return done()
+        }
+        return done(new Error('Response was not funny'))
       }
     })
   })
