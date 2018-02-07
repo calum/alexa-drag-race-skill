@@ -20,7 +20,7 @@ function challenges_from_queen_response(queen, challenges) {
 }
 
 function short_audio(mp3_url) {
-  return '<speak><audio src="'+mp3_url+'"/></speak>'
+  return '<audio src="'+mp3_url+'"/>'
 }
 
 
