@@ -127,7 +127,7 @@ describe('AWS Lambda tests', function() {
         if (err) {
           return done(err)
         }
-        if (data.response.outputSpeech.ssml.includes("The top three for season 4 are Willam Belli, Phi Phi O'Hara, and Chad Michaels.")) {
+        if (data.response.outputSpeech.ssml.includes("Chad Michaels")) {
           return done()
         }
         return done(new Error('Response was incorrect: '+JSON.stringify(data.response)))
