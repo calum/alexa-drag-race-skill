@@ -21,7 +21,7 @@ Drag Race Facts
   </a>
 </div>
 
-<div align="center">Alexa, shantay you stay! 👠</div>
+<div align="center">Alexa, shantay you stay! 👠💄👑</div>
 
 <br />
 
