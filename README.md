@@ -38,7 +38,7 @@ This skill is built using the [No Key No Shade drag race API](https://drag-race-
 3. When is the next episode of Drag Race?
 
 
-## Structure
+## Alexa Skill Structure
 The configuration for translating the users questions into `intents` is defined in `config/intents.json` along with other configuration files for Alexa. These files in the `config` directory are merged together into `build/models.json` when running `npm run build`.
 
 `main.js` is the entry point for the application and users questions are passed to the handles in `src/handlers.js`.
@@ -48,6 +48,9 @@ The api requests are all defined in `src/drag_race/` directory. For API calls to
 The `resources/` directory will hold some useful files for other parts of the application. For instance, the list of available drag queen names is taken from a file in `resources/` and used to generate the [intent slots](https://developer.amazon.com/docs/custom-skills/custom-interaction-model-reference.htm) for Alexa.
 
 The `build/` directory will hold files which must be manually uploaded onto the Alexa application page on amazon's website.
+
+## Google Actions Structure
+Google support is being developed and is deployed to [Firebase functions](https://firebase.google.com/docs/functions/). The source code that runs on the Firebase server is in the `functions/` directory. 
 
 ## Questions that Alexa can answer
 * What season was `{queen}` in?
