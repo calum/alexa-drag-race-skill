@@ -1038,6 +1038,117 @@
               "Sasha Steinberg"
             ]
           }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Aquaria",
+            "synonyms": [
+              "Giovanni Palandrani"
+            ]
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Asia O'Hara",
+            "synonyms": [
+              "Antwan Lee"
+            ]
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Blair St. Clair",
+            "synonyms": [
+              "Andrew Bryson"
+            ]
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Dusty Ray Bottoms",
+            "synonyms": [
+              "Dustin Rayburn"
+            ]
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Kalorie Karbdashian-Williams"
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Kameron Michaels",
+            "synonyms": [
+              "Dane Young"
+            ]
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Mayhem Miller",
+            "synonyms": [
+              "Dequan Johnson"
+            ]
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Miz Cracker",
+            "synonyms": [
+              "Maxwell Heller"
+            ]
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Monét X Change",
+            "synonyms": [
+              "Kevin Bertin"
+            ]
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Monique Heart",
+            "synonyms": [
+              "Kevin Richardson"
+            ]
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Vanessa Vanjie Mateo"
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "The Vixen",
+            "synonyms": [
+              "Tony"
+            ]
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "Yuhua Hamasaki",
+            "synonyms": [
+              "Yuhua Ou"
+            ]
+          }
         }
       ]
     },
@@ -1047,43 +1158,13 @@
         {
           "id": null,
           "name": {
-            "value": "1"
-          }
-        },
-        {
-          "id": null,
-          "name": {
-            "value": "3"
-          }
-        },
-        {
-          "id": null,
-          "name": {
-            "value": "all stars 1"
-          }
-        },
-        {
-          "id": null,
-          "name": {
-            "value": "5"
-          }
-        },
-        {
-          "id": null,
-          "name": {
             "value": "6"
           }
         },
         {
           "id": null,
           "name": {
-            "value": "7"
-          }
-        },
-        {
-          "id": null,
-          "name": {
-            "value": "all stars 3"
+            "value": "1"
           }
         },
         {
@@ -1095,7 +1176,19 @@
         {
           "id": null,
           "name": {
-            "value": "all stars 2"
+            "value": "all stars 1"
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "3"
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "all stars 3"
           }
         },
         {
@@ -1107,7 +1200,31 @@
         {
           "id": null,
           "name": {
+            "value": "5"
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "7"
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "all stars 2"
+          }
+        },
+        {
+          "id": null,
+          "name": {
             "value": "9"
+          }
+        },
+        {
+          "id": null,
+          "name": {
+            "value": "10"
           }
         },
         {
